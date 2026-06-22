@@ -1,0 +1,16 @@
+{
+  "name": "Cheneval Advisory",
+  "short_name": "Cheneval",
+  "description": "Practical AI advisory for Australian schools and people-led organisations.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0E2240",
+  "theme_color": "#0E2240",
+  "icons": [
+    {
+      "src": "favicon-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

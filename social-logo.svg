@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0E2240" />
+  <text x="50%" y="43%" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="120" font-weight="700" fill="#C5A572">Cheneval</text>
+  <rect x="360" y="280" width="480" height="8" fill="#C5A572" rx="4" />
+  <text x="50%" y="60%" text-anchor="middle" font-family="Lato, Arial, sans-serif" font-size="56" font-weight="700" letter-spacing="0.18em" fill="#FFFFFF">Advisory</text>
+</svg>
