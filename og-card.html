@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lato:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; }
+    body {
+      background: #0E2240;            /* --navy */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Same lockup as the site header, scaled for a 1200x630 card */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 3rem;
+      line-height: 1;
+    }
+    .logo__name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+      font-size: 96px;
+      letter-spacing: 0.04em;
+      color: #F5F2EC;                /* --off (matches site footer lockup) */
+    }
+    .logo__rule {
+      width: 104px;
+      height: 3px;
+      background: #C5A572;           /* --gold */
+      flex: none;
+    }
+    .logo__sub {
+      font-family: 'Lato', Arial, sans-serif;
+      font-weight: 700;
+      font-size: 38px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: #C5A572;                /* --gold (matches site footer lockup) */
+      /* compensate for trailing letter-spacing so the lockup optically centers */
+      margin-right: -0.34em;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <span class="logo__name">Cheneval</span>
+    <span class="logo__rule" aria-hidden="true"></span>
+    <span class="logo__sub">Advisory</span>
+  </div>
+</body>
+</html>
