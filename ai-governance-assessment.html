@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><title>AI Governance Assessment</title>
+<style>
+body{margin:0;font-family:system-ui;background:#f5f2ec;color:#1a1a1a}
+#root{max-width:980px;margin:0 auto;padding:20px}
+.card{background:#fff;border:1px solid #e7e2d6;border-radius:16px;padding:32px;margin:20px 0}
+h1{color:#0e2240;margin:0 0 20px}
+.field{margin:15px 0}
+label{display:block;margin-bottom:8px;font-weight:700;color:#0e2240}
+input,select,textarea{width:100%;padding:10px;border:1px solid #cfcaba;border-radius:8px;font:inherit}
+button{padding:10px 20px;border:none;border-radius:999px;cursor:pointer;font-weight:700;margin:10px 5px 10px 0}
+.btn-primary{background:#0e2240;color:#fff}
+.btn-secondary{background:#fff;color:#0e2240;border:1px solid #cfcaba}
+.options{display:grid;gap:10px;margin:15px 0}
+.option{border:1px solid #d6d1c2;padding:15px;border-radius:12px;cursor:pointer;background:#fff}
+.option:hover{border-color:#c5a572}
+.option.selected{border-color:#0e2240;background:#f7f8fb}
+.report{margin-top:30px}
+.pillar{margin:15px 0;padding:15px;background:#f8f7f0;border-radius:10px}
+</style>
+</head>
+<body>
+<div id="root"><div class="card"><p>Loading...</p></div></div>
+<script>
+const PROFILE = [{"id": "useCase", "label": "Use case name", "type": "text", "placeholder": "Name this AI use case"}, {"id": "owner", "label": "Accountable owner", "type": "text", "placeholder": "Full name and role"}, {"id": "tool", "label": "AI tool & vendor", "type": "text", "placeholder": "Tool and vendor"}];
+const PILLARS = [{"id": "tl", "name": "Teaching & Learning", "questions": [{"id": "tl1", "prompt": "Does AI support human judgment or replace it?", "options": [{"label": "Supports human, who reviews output", "weight": 0}, {"label": "Does significant work, checked sometimes", "weight": 1}, {"label": "Automates with little review", "weight": 2}]}]}, {"id": "hw", "name": "Wellbeing & Care", "questions": [{"id": "hw1", "prompt": "Could this affect wellbeing or feel like surveillance?", "options": [{"label": "No foreseeable impact", "weight": 0}, {"label": "Possible, manageable", "weight": 1}, {"label": "Yes, plausible risk", "weight": 2}]}]}, {"id": "tr", "name": "Transparency", "questions": [{"id": "tr1", "prompt": "Will people know AI is involved?", "options": [{"label": "Yes, clearly disclosed", "weight": 0}, {"label": "Partially", "weight": 1}, {"label": "No", "weight": 2}]}]}, {"id": "pr", "name": "Privacy & Data", "questions": [{"id": "pr1", "prompt": "What data does it handle?", "options": [{"label": "None / de-identified", "weight": 0}, {"label": "Low-sensitivity personal info", "weight": 1}, {"label": "Sensitive data", "weight": 2}]}]}];
+const REC = {proceed:{tag:'Proceed',color:'#2e7d5b',line:'This looks well-managed.'},conditions:{tag:'Conditions',color:'#c58a1b',line:'Can proceed once conditions are addressed.'},hold:{tag:'Hold',color:'#b23b3b',line:'Needs governance review.'}};
+const state = {step:0, profile:{}, answers:{}};
+const totalSteps = 1 + PILLARS.length;
+
+function escapeHtml(text) {
+  return String(text||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"})[c]);
+}
+
+function bandFor(avg) {
+  if(avg==null) return 'low';
+  if(avg<1.5) return 'low';
+  if(avg<2.5) return 'moderate';
+  return 'high';
+}
+
+function renderProfileStep() {
+  return `<h1>Project Profile</h1>` + PROFILE.map(f => {
+    return `<div class="field"><label for="${f.id}">${escapeHtml(f.label)}</label><input id="${f.id}" type="text" placeholder="${escapeHtml(f.placeholder)}" /></div>`;
+  }).join('') + `<button class="btn-secondary" onclick="state.step=Math.max(0,state.step-1);render()">← Back</button><button class="btn-primary" onclick="nextStep()">Continue →</button>`;
+}
+
+function renderPillarStep() {
+  const p = PILLARS[state.step - 1];
+  const qs = p.questions.map(q => {
+    const opts = q.options.map(o => `<div class="option" onclick="answer('${q.id}','${escapeHtml(o.label)}',${o.weight})">${escapeHtml(o.label)}</div>`).join('');
+    return `<div><p><strong>${escapeHtml(q.prompt)}</strong></p><div class="options">${opts}</div></div>`;
+  }).join('');
+  return `<h1>${escapeHtml(p.name)}</h1>${qs}<button class="btn-secondary" onclick="state.step=Math.max(0,state.step-1);render()">← Back</button><button class="btn-primary" onclick="nextStep()">Continue →</button>`;
+}
+
+function renderReport() {
+  const allAnswers = Object.values(state.answers).map(a => a.weight);
+  const avg = allAnswers.length ? allAnswers.reduce((s,w) => s+w) / allAnswers.length : 0;
+  const band = bandFor(avg);
+  const rec = REC[band === 'high' ? 'hold' : band === 'moderate' ? 'conditions' : 'proceed'];
+  return `<h1>Assessment Complete</h1><div class="report"><div style="color:${rec.color};font-weight:700;margin:15px 0">${escapeHtml(rec.tag)}</div><p>${escapeHtml(rec.line)}</p><p><strong>Average Risk:</strong> ${avg.toFixed(2)}</p></div><button class="btn-primary" onclick="location.reload()">New Assessment</button>`;
+}
+
+function render() {
+  const root = document.getElementById('root');
+  const card = document.createElement('div');
+  card.className = 'card';
+  
+  if(state.step === 0) {
+    card.innerHTML = renderProfileStep();
+  } else if(state.step > 0 && state.step <= PILLARS.length) {
+    card.innerHTML = renderPillarStep();
+  } else {
+    card.innerHTML = renderReport();
+  }
+  
+  root.innerHTML = '';
+  root.appendChild(card);
+}
+
+function nextStep() {
+  if(state.step === 0) {
+    PROFILE.forEach(f => state.profile[f.id] = document.getElementById(f.id).value);
+  }
+  state.step = Math.min(totalSteps, state.step + 1);
+  render();
+}
+
+function answer(qid, label, weight) {
+  state.answers[qid] = {label, weight};
+  nextStep();
+}
+
+render();
+</script>
+</body>
+</html>
