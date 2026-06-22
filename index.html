@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cheneval Advisory — AI &amp; Technology Advisory</title>
-  <meta name="description" content="Cheneval Advisory helps organisations cut through the noise of AI and technology — assess, adopt, and embed with clarity." />
+  <title>Cheneval Advisory — AI Adoption for Australian Schools &amp; Leaders</title>
+  <meta name="description" content="Cheneval Advisory helps Australian schools and people-led organisations adopt AI in practical, sustainable ways. Practitioner-led AI advisory in Sydney." />
 
   <!-- Google Fonts: Cormorant Garamond (headings) + Lato (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,7 +40,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 88px; /* offset for sticky header on anchor jumps */
+      scroll-padding-top: 88px;
       -webkit-text-size-adjust: 100%;
     }
 
@@ -71,7 +71,6 @@
 
     a { color: inherit; text-decoration: none; }
 
-    /* ---- Accessibility: visible focus ---- */
     :focus-visible {
       outline: 2px solid var(--gold);
       outline-offset: 3px;
@@ -161,7 +160,7 @@
     }
 
     /* ============================================================
-       Buttons — sharp, minimal (no radius)
+       Buttons
        ============================================================ */
     .btn {
       display: inline-flex;
@@ -253,7 +252,6 @@
     }
     .nav__link:hover::after, .nav__link:focus-visible::after { width: 100%; }
 
-    /* Hamburger */
     .nav-toggle {
       display: none;
       flex-direction: column;
@@ -341,6 +339,48 @@
     .approach-card p { color: var(--slate); }
 
     /* ============================================================
+       About section
+       ============================================================ */
+    .about-grid {
+      display: grid;
+      gap: clamp(2rem, 5vw, 3.5rem);
+      grid-template-columns: 1fr;
+      align-items: start;
+      margin-top: clamp(2rem, 4vw, 3rem);
+    }
+    .about-photo {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 4 / 5;
+      background: rgba(197, 165, 114, 0.12);
+      border: 1px solid rgba(26, 26, 26, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .about-bio p { color: var(--slate); margin-bottom: 1rem; }
+    .about-bio p:first-child {
+      color: var(--charcoal);
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .about-bio strong { color: var(--charcoal); font-weight: 700; }
+
+    @media (min-width: 800px) {
+      .about-grid { grid-template-columns: 320px 1fr; }
+    }
+
+    /* ============================================================
        Services — grid of 6
        ============================================================ */
     .grid-services {
@@ -375,7 +415,7 @@
     .quote-band { text-align: center; }
     .quote-band blockquote {
       margin: 0 auto;
-      max-width: 24ch;
+      max-width: 30ch;
       font-family: var(--font-head);
       font-weight: 500;
       font-size: clamp(2rem, 1.2rem + 4vw, 3.5rem);
@@ -507,19 +547,13 @@
     .footer__bottom a:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ============================================================
-       Responsive — tablet & up
+       Responsive
        ============================================================ */
     @media (min-width: 700px) {
       .grid-3 { grid-template-columns: repeat(3, 1fr); }
       .grid-services { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (min-width: 1000px) {
-      .grid-services { grid-template-columns: repeat(3, 1fr); }
-    }
 
-    /* ============================================================
-       Responsive — mobile nav (hamburger)
-       ============================================================ */
     @media (max-width: 859px) {
       .nav-toggle { display: flex; }
       .nav {
@@ -549,15 +583,11 @@
       .nav__link::after { display: none; }
       .nav .btn { margin-top: 1.25rem; width: 100%; }
 
-      /* hamburger -> X when open */
       .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
       .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
       .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
     }
 
-    /* ============================================================
-       Reduced motion
-       ============================================================ */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -594,6 +624,7 @@
       <nav class="nav" id="primaryNav" aria-label="Primary">
         <ul class="nav__list">
           <li><a class="nav__link" href="#approach">Approach</a></li>
+          <li><a class="nav__link" href="#about">About</a></li>
           <li><a class="nav__link" href="#services">Services</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
         </ul>
@@ -608,15 +639,16 @@
     <!-- ============================== HERO ============================== -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero__inner">
-        <p class="eyebrow">AI &amp; Technology Advisory</p>
-        <h1 id="hero-title">Clarity at the pace of change.</h1>
+        <p class="eyebrow">AI Adoption Advisory</p>
+        <h1 id="hero-title">AI adoption, delivered by operators.</h1>
         <p class="lead">
-          Technology is moving faster than most organisations can absorb. We help
-          leadership teams separate signal from hype, make confident decisions, and
-          turn AI from a talking point into measurable outcomes.
+          Cheneval Advisory helps Australian schools and people-led organisations adopt AI
+          in practical, sustainable ways. We bring a practitioner's perspective to AI
+          transformation — using the tools daily, working inside real institutions, and
+          helping leaders move from <em>"we should do AI"</em> to <em>"here's what we changed on Monday."</em>
         </p>
         <div class="hero__cta">
-          <a class="btn btn--gold" href="#contact">Get in touch</a>
+          <a class="btn btn--gold" href="#contact">Start a conversation</a>
           <a class="btn btn--ghost" href="#approach">How we work</a>
         </div>
       </div>
@@ -626,30 +658,31 @@
     <section class="section section--off" id="approach" aria-labelledby="approach-title">
       <div class="container">
         <p class="eyebrow">Our Approach</p>
-        <h2 class="section-title" id="approach-title">A clear path from uncertainty to impact.</h2>
+        <h2 class="section-title" id="approach-title">From AI uncertainty to confident action.</h2>
         <p class="lead" style="margin-top:1rem;">
-          Three deliberate phases that take you from understanding what AI means
-          for your organisation to embedding it in how you work.
+          AI adoption isn't a tooling problem. It's a workforce transformation problem.
+          Our three-phase approach helps your organisation move through it deliberately
+          rather than reactively.
         </p>
 
         <div class="grid-3">
           <article class="approach-card">
             <span class="approach-card__step">Phase 01</span>
-            <h3>Assess</h3>
+            <h3>Diagnose</h3>
             <p>
-              We map your landscape — capabilities, data, risks and opportunities —
-              and cut through the noise to a grounded view of where AI and technology
-              create real value for you.
+              Through a workshop, leadership session, or fixed-scope readiness assessment,
+              we identify where AI can create real value in your context — and the workflows,
+              capabilities and risks that need attention first.
             </p>
           </article>
 
           <article class="approach-card">
             <span class="approach-card__step">Phase 02</span>
-            <h3>Adopt</h3>
+            <h3>Apply</h3>
             <p>
-              We prioritise the highest-leverage moves and put them into practice —
-              choosing the right tools, designing pilots, and proving value before
-              you scale.
+              We work alongside your people to put the highest-leverage use cases into
+              practice — choosing the right tools, designing real workflows, and proving
+              value before you scale.
             </p>
           </article>
 
@@ -657,55 +690,89 @@
             <span class="approach-card__step">Phase 03</span>
             <h3>Embed</h3>
             <p>
-              We make change stick — building the skills, governance and operating
-              rhythms so your teams keep moving long after the engagement ends.
+              We build the AI literacy, governance and operating rhythms that make change
+              stick — so your teams keep moving long after the engagement ends.
             </p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ============================== ABOUT ============================== -->
+    <section class="section section--white" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <p class="eyebrow">About</p>
+        <h2 class="section-title" id="about-title">Practitioner-led, not slide-deck-led.</h2>
+
+        <div class="about-grid">
+          <div class="about-photo" aria-label="Photo of Jami Emerson Cheneval">
+            <!-- Replace src below with the path to your photo, e.g. /assets/jami.jpg -->
+            <img src="" alt="Jami Emerson Cheneval" onerror="this.style.display='none'; this.parentElement.innerHTML='Photo';" />
+          </div>
+
+          <div class="about-bio">
+            <p>
+              <strong>Jami Emerson Cheneval</strong> is the principal of Cheneval Advisory,
+              a Sydney-based consultancy helping Australian organisations adopt AI in
+              practical, sustainable ways.
+            </p>
+            <p>
+              Originally from Oregon City in the United States, Jami completed a Bachelor of
+              Information Technology at the Australian Catholic University and was named the
+              <strong>2020 NSW International Student of the Year — Higher Education</strong>
+              for her leadership and contribution during her studies. She currently works in
+              IT at the University of Technology Sydney as an AI Capability and Adoption
+              Specialist and Test Automation Engineer.
+            </p>
+            <p>
+              Alongside her IT work, Jami is the founder of an Australian wholefood snack bar
+              brand built on lean operations and integrated AI workflows, and she served as
+              the 2020 Founder-in-Residence at the UTS Techcelerator Female Founder
+              Mentoring Program, supporting emerging women founders across the Australian
+              innovation community.
+            </p>
+            <p>
+              Through Cheneval Advisory, Jami brings a practitioner's perspective to AI
+              transformation — combining technical engineering discipline, founder
+              experience, and hands-on institutional AI adoption work. She believes AI
+              adoption is a workforce transformation challenge, not a tooling one, and
+              works particularly closely with leaders in education and people-and-culture
+              functions to make it real.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== SERVICES ============================== -->
-    <section class="section section--white" id="services" aria-labelledby="services-title">
+    <section class="section section--off" id="services" aria-labelledby="services-title">
       <div class="container">
         <p class="eyebrow">Services</p>
-        <h2 class="section-title" id="services-title">Advisory, end to end.</h2>
+        <h2 class="section-title" id="services-title">Four ways we work with you.</h2>
 
         <div class="grid-services">
           <article class="service">
             <span class="service__num">01</span>
-            <h3>AI Strategy</h3>
-            <p>A pragmatic, board-ready strategy that ties AI investment to the outcomes your organisation actually cares about.</p>
+            <h3>Executive Workshops</h3>
+            <p>In-house sessions for leadership teams, executive groups, boards, and People &amp; Culture functions — on AI literacy, governance, adoption strategy, and change management. Half-day or full-day.</p>
           </article>
 
           <article class="service">
             <span class="service__num">02</span>
-            <h3>Readiness &amp; Assessment</h3>
-            <p>A clear-eyed view of your data, capability and risk posture — and exactly what needs to be true before you scale.</p>
+            <h3>Adoption Partner Retainer</h3>
+            <p>Ongoing monthly advisory after a diagnostic — leadership sessions, async support, roadmap reviews, governance check-ins, and change-management coaching as you execute.</p>
           </article>
 
           <article class="service">
             <span class="service__num">03</span>
-            <h3>Technology Due Diligence</h3>
-            <p>Independent evaluation of platforms, vendors and architecture so you invest with confidence, not on faith.</p>
+            <h3>Sector Speaking &amp; Facilitation</h3>
+            <p>Speaking and facilitation for AHISA, AISNSW, and broader independent-school sector events — practitioner-led perspective for peer audiences navigating AI together.</p>
           </article>
 
           <article class="service">
             <span class="service__num">04</span>
-            <h3>Governance &amp; Risk</h3>
-            <p>Lightweight, practical guardrails for responsible AI — covering policy, compliance, security and accountability.</p>
-          </article>
-
-          <article class="service">
-            <span class="service__num">05</span>
-            <h3>Pilots &amp; Implementation</h3>
-            <p>Hands-on delivery of focused pilots that prove value quickly and create a repeatable path to production.</p>
-          </article>
-
-          <article class="service">
-            <span class="service__num">06</span>
-            <h3>Capability &amp; Enablement</h3>
-            <p>Coaching, workshops and operating models that build lasting fluency across your leadership and teams.</p>
+            <h3>Advisory Hours</h3>
+            <p>Pre-purchased advisory hours for schools that need on-demand AI guidance without a full engagement — document reviews, board prep, vendor evaluation, second opinions.</p>
           </article>
         </div>
       </div>
@@ -715,7 +782,7 @@
     <section class="section section--navy quote-band" aria-label="Our point of view">
       <div class="container">
         <blockquote>
-          <span class="quote-mark" aria-hidden="true">“</span>Most organisations don't have an AI problem. They have a clarity problem.<span class="quote-mark" aria-hidden="true">”</span>
+          <span class="quote-mark" aria-hidden="true">"</span>AI adoption isn't a tooling problem. It's a workforce transformation problem.<span class="quote-mark" aria-hidden="true">"</span>
         </blockquote>
         <cite>Cheneval Advisory</cite>
       </div>
@@ -725,10 +792,11 @@
     <section class="section section--off contact" id="contact" aria-labelledby="contact-title">
       <div class="container contact__inner">
         <p class="eyebrow">Let's talk</p>
-        <h2 class="section-title" id="contact-title">Bring clarity to your next decision.</h2>
+        <h2 class="section-title" id="contact-title">Bring clarity to your next AI decision.</h2>
         <p class="lead" style="margin-top:1rem;">
-          Whether you're just starting to explore AI or scaling what already works,
-          a short conversation is the fastest way to find out where we can help.
+          Whether you're a school leadership team starting to think about AI, or a People &amp;
+          Culture function ready to embed it across your organisation — a short conversation
+          is the fastest way to find out where we can help.
         </p>
 
         <form class="contact-form" action="FORM_ENDPOINT" method="POST" novalidate>
@@ -754,8 +822,10 @@
         </form>
 
         <p class="contact__email">
-          Prefer email? Reach us directly at
-          <a href="mailto:hello@chenevaladvisory.com">hello@chenevaladvisory.com</a>
+          Prefer email? Reach Jami directly at
+          <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
         </p>
       </div>
     </section>
@@ -774,6 +844,7 @@
         <nav aria-label="Footer">
           <ul class="footer__nav">
             <li><a href="#approach">Approach</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -781,13 +852,16 @@
       </div>
 
       <div class="footer__bottom">
-        <span>&copy; <span id="year">2026</span> Cheneval Advisory. All rights reserved.</span>
-        <a href="mailto:hello@chenevaladvisory.com">hello@chenevaladvisory.com</a>
+        <span>&copy; <span id="year">2026</span> Cheneval Advisory. Sydney, NSW. ABN 50 261 207 839. All rights reserved.</span>
+        <span class="footer__links">
+          <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </span>
       </div>
     </div>
   </footer>
 
-  <!-- Minimal vanilla JS: hamburger toggle + footer year. No frameworks, no build step. -->
   <script>
     (function () {
       var toggle = document.getElementById('navToggle');
@@ -803,17 +877,14 @@
         setOpen(toggle.getAttribute('aria-expanded') !== 'true');
       });
 
-      // Close the menu after choosing a destination (mobile).
       nav.addEventListener('click', function (e) {
         if (e.target.closest('a')) setOpen(false);
       });
 
-      // Close on Escape.
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') setOpen(false);
       });
 
-      // Stamp the current year.
       document.getElementById('year').textContent = new Date().getFullYear();
     })();
   </script>
