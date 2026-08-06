@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cheneval Advisory — AI Adoption for Australian Schools &amp; Leaders</title>
-  <meta name="description" content="Cheneval Advisory helps Australian schools and people-led organisations adopt AI in practical, sustainable ways. Practitioner-led AI advisory in Sydney." />
+  <title>Cheneval Advisory — AI Adoption for Schools, Universities &amp; Organisations</title>
+  <meta name="description" content="Cheneval Advisory helps Australian schools, universities and organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory in Sydney." />
   <link rel="canonical" href="https://chenevaladvisory.com.au/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="Jami Emerson Cheneval" />
@@ -13,8 +13,8 @@
   <link rel="mask-icon" href="favicon-mark.svg" color="#C5A572" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#0E2240" />
-  <meta property="og:title" content="Cheneval Advisory — AI Adoption for Australian Schools & Leaders" />
-  <meta property="og:description" content="Cheneval Advisory helps Australian schools and people-led organisations adopt AI in practical, sustainable ways." />
+  <meta property="og:title" content="Cheneval Advisory — AI Adoption for Schools, Universities & Organisations" />
+  <meta property="og:description" content="Cheneval Advisory helps Australian schools, universities and organisations adopt AI in practical, sustainable ways." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://chenevaladvisory.com.au/" />
   <meta property="og:site_name" content="Cheneval Advisory" />
@@ -25,8 +25,8 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Cheneval Advisory logo" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cheneval Advisory — AI Adoption for Australian Schools & Leaders" />
-  <meta name="twitter:description" content="Practical AI advisory for Australian schools and people-led organisations." />
+  <meta name="twitter:title" content="Cheneval Advisory — AI Adoption for Schools, Universities & Organisations" />
+  <meta name="twitter:description" content="Practical AI adoption advisory for Australian schools, universities and organisations." />
   <meta name="twitter:image" content="https://chenevaladvisory.com.au/social-logo.png" />
   <meta name="twitter:image:alt" content="Cheneval Advisory logo" />
 
@@ -113,6 +113,16 @@
       transition: transform 0.2s var(--ease);
     }
     .skip-link:focus { transform: translateY(0); }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      margin: -1px; padding: 0;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
 
     /* ============================================================
        Layout helpers
@@ -434,6 +444,64 @@
     .service p { color: var(--slate); margin: 0; }
 
     /* ============================================================
+       Testimonials
+       ============================================================ */
+    .testimonials__grid {
+      display: grid;
+      gap: clamp(1.5rem, 4vw, 2.5rem);
+      grid-template-columns: 1fr;
+      margin-top: clamp(2.5rem, 5vw, 3.5rem);
+    }
+    .testimonial {
+      border-left: 2px solid var(--gold);
+      padding: 0.25rem 0 0.25rem clamp(1.25rem, 3vw, 2rem);
+      margin: 0;
+      max-width: 62ch;
+    }
+    .testimonial__quote {
+      font-family: var(--font-head);
+      font-weight: 400;
+      font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.6rem);
+      line-height: 1.4;
+      color: var(--charcoal);
+      margin: 0 0 1.5rem;
+    }
+    .testimonial__quote .quote-mark { color: var(--gold); }
+    .testimonial__attrib {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1.25rem;
+      font-style: normal;
+    }
+    .testimonial__logo {
+      height: 46px;
+      width: auto;
+      flex: none;
+      mix-blend-mode: multiply;
+    }
+    /* Divider only when the logo and attribution sit on one line */
+    @media (min-width: 600px) {
+      .testimonial__logo + .testimonial__person {
+        padding-left: 1.25rem;
+        border-left: 1px solid rgba(26, 26, 26, 0.15);
+      }
+    }
+    .testimonial__person {
+      font-size: 0.9rem;
+      line-height: 1.45;
+      color: var(--slate);
+    }
+    .testimonial__name {
+      display: block;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    /* ============================================================
        Quote band
        ============================================================ */
     .quote-band { text-align: center; }
@@ -464,6 +532,42 @@
        ============================================================ */
     .contact__inner { max-width: 44rem; }
     .contact h2 { margin-bottom: 1.25rem; }
+
+    .contact-actions {
+      margin-top: 2.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem 1.5rem;
+    }
+    .contact-actions__note {
+      font-size: 0.95rem;
+      color: var(--slate);
+      max-width: 34ch;
+      margin: 0;
+    }
+    .btn__icon { width: 0.7em; height: 0.7em; flex: none; }
+
+    /* "Or send a message" rule between the booking CTA and the form */
+    .contact-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2.75rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+    .contact-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: rgba(26, 26, 26, 0.15);
+    }
+
+    .contact-divider + .contact-form { margin-top: 1.5rem; }
 
     .contact-form {
       margin-top: 2.25rem;
@@ -503,6 +607,9 @@
       border-color: var(--gold);
       box-shadow: 0 0 0 2px rgba(197, 165, 114, 0.45);
     }
+    /* Error state only once the field has content. Required fields carry
+       placeholder=" " so :placeholder-shown matches while empty — without it
+       every required field renders red on page load. Don't remove either half. */
     .field input:invalid:not(:placeholder-shown),
     .field textarea:invalid:not(:placeholder-shown) {
       border-color: #9a3b2e;
@@ -637,7 +744,7 @@
         "url": "https://chenevaladvisory.com.au/",
         "image": "https://chenevaladvisory.com.au/social-logo.png",
         "logo": "https://chenevaladvisory.com.au/social-logo.png",
-        "description": "Cheneval Advisory helps Australian schools and people-led organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory based in Sydney.",
+        "description": "Cheneval Advisory helps Australian schools, universities and organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory based in Sydney.",
         "email": "jami@chenevaladvisory.com.au",
         "founder": { "@id": "https://chenevaladvisory.com.au/#jami" },
         "knowsAbout": [
@@ -664,6 +771,19 @@
         "sameAs": [
           "https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/"
         ],
+        "potentialAction": {
+          "@type": "ReserveAction",
+          "name": "Book a discovery call",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://outlook.office.com/book/ChenevalAdvisoryDiscoveryCall@ChenevalAdvisory.onmicrosoft.com/",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "result": { "@type": "Reservation", "name": "30-minute discovery call" }
+        },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "AI advisory services",
@@ -671,16 +791,29 @@
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Executive Workshops", "description": "In-house sessions for leadership teams, executive groups, boards, and People & Culture functions on AI literacy, governance, adoption strategy, and change management." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Adoption Partner Retainer", "description": "Ongoing monthly advisory after a diagnostic: leadership sessions, async support, roadmap reviews, governance check-ins, and change-management coaching." } },
             { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Operational Workshops", "description": "Hands-on sessions that help operational and frontline staff adopt AI in their everyday work, turning the right tools into practical, repeatable workflows." } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Advisory Hours", "description": "Pre-purchased advisory hours for schools that need on-demand AI guidance: document reviews, board prep, vendor evaluation, second opinions." } }
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Advisory Hours", "description": "Pre-purchased advisory hours for organisations that need on-demand AI guidance: document reviews, board prep, vendor evaluation, second opinions." } }
           ]
-        }
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "reviewBody": "Jami, thank you for facilitating such an outstanding AI adoption workshop at Loreto Kirribilli. Your engaging and practical approach inspired our team to think more innovatively about AI, leading many to begin building their own agents to improve productivity while helping even our late adopters understand the value of integrating AI into their everyday work.",
+            "author": {
+              "@type": "Person",
+              "name": "Kevin Horstmann",
+              "jobTitle": "Director of People and Culture",
+              "worksFor": { "@type": "Organization", "name": "Loreto Kirribilli" }
+            },
+            "itemReviewed": { "@id": "https://chenevaladvisory.com.au/#organization" }
+          }
+        ]
       },
       {
         "@type": "Person",
         "@id": "https://chenevaladvisory.com.au/#jami",
         "name": "Jami Emerson Cheneval",
         "jobTitle": "Principal",
-        "description": "Principal of Cheneval Advisory and an AI Capability and Adoption Specialist, bringing a practitioner's perspective to AI transformation in education and people-and-culture functions.",
+        "description": "Principal of Cheneval Advisory and an AI Capability and Adoption Specialist, bringing a practitioner's perspective to AI transformation across schools, universities and organisations.",
         "image": "https://chenevaladvisory.com.au/jami_photo.JPG",
         "worksFor": { "@id": "https://chenevaladvisory.com.au/#organization" },
         "alumniOf": { "@type": "CollegeOrUniversity", "name": "Australian Catholic University" },
@@ -730,6 +863,7 @@
           <li><a class="nav__link" href="#approach">Approach</a></li>
           <li><a class="nav__link" href="#about">About</a></li>
           <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#testimonials">Testimonials</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
         </ul>
         <a class="btn btn--outline-dark" href="#contact">Get in touch</a>
@@ -746,7 +880,7 @@
         <p class="eyebrow">AI Adoption Advisory</p>
         <h1 id="hero-title">AI adoption, delivered by operators.</h1>
         <p class="lead">
-          Cheneval Advisory helps Australian schools and people-led organisations adopt AI
+          Cheneval Advisory helps schools, universities and organisations adopt AI
           in practical, sustainable ways. We combine a practitioner's perspective to AI
           transformation and a strategic approach to implementation, using the tools daily, working inside real institutions, and
           helping leaders move from <em>"we should do AI"</em> to <em>"here's what we changed on Monday."</em>
@@ -816,8 +950,8 @@
           <div class="about-bio">
             <p>
               <strong>Jami Emerson Cheneval</strong> is the principal of Cheneval Advisory,
-              a Sydney-based consultancy helping Australian organisations adopt AI in
-              practical, sustainable ways.
+              a Sydney-based consultancy helping schools, universities and organisations
+              adopt AI in practical, sustainable ways.
             </p>
             <p>
               Originally from Oregon City in the United States, Jami completed a Bachelor of
@@ -839,8 +973,8 @@
               transformation — combining technical engineering discipline, founder
               experience, and hands-on institutional AI adoption work. She believes AI
               adoption is a workforce transformation challenge, not a tooling one, and
-              works particularly closely with leaders in education and people-and-culture
-              functions to make it real.
+              works closely with leaders across education, people-and-culture, and
+              operations to make it real.
             </p>
           </div>
         </div>
@@ -875,8 +1009,35 @@
           <article class="service">
             <span class="service__num">04</span>
             <h3>Advisory Hours</h3>
-            <p>Pre-purchased advisory hours for schools that need on-demand AI guidance without a full engagement — document reviews, board prep, vendor evaluation, second opinions.</p>
+            <p>Pre-purchased advisory hours for organisations that need on-demand AI guidance without a full engagement — document reviews, board prep, vendor evaluation, second opinions.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TESTIMONIALS ============================== -->
+    <section class="section section--white" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <p class="eyebrow">In their words</p>
+        <h2 class="section-title" id="testimonials-title">What clients say.</h2>
+
+        <div class="testimonials__grid">
+          <figure class="testimonial">
+            <blockquote class="testimonial__quote">
+              <span class="quote-mark" aria-hidden="true">"</span>Jami, thank you for facilitating such an
+              outstanding AI adoption workshop at Loreto Kirribilli. Your engaging and practical approach
+              inspired our team to think more innovatively about AI, leading many to begin building their
+              own agents to improve productivity while helping even our late adopters understand the value
+              of integrating AI into their everyday work.<span class="quote-mark" aria-hidden="true">"</span>
+            </blockquote>
+            <figcaption class="testimonial__attrib">
+              <img class="testimonial__logo" src="./loreto-kirribilli-logo.jpg" alt="Loreto Kirribilli" width="280" height="73" loading="lazy" />
+              <p class="testimonial__person">
+                <span class="testimonial__name">Kevin Horstmann</span>
+                Director of People and Culture, Loreto Kirribilli
+              </p>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -897,21 +1058,40 @@
         <p class="eyebrow">Let's talk</p>
         <h2 class="section-title" id="contact-title">Bring clarity to your next AI decision.</h2>
         <p class="lead" style="margin-top:1rem;">
-          Whether you're a school leadership team starting to think about AI, or a People &amp;
-          Culture function ready to embed it across your organisation — a short conversation
-          is the fastest way to find out where we can help.
+          Whether you're a school or university leadership team starting to think about AI, or
+          an organisation ready to embed it across your teams — a short conversation is the
+          fastest way to find out where we can help.
         </p>
+
+        <!-- ===== BOOKING CTA =====
+             Microsoft Bookings page. The same URL also appears once in the
+             JSON-LD block in <head> — update both if it ever changes. -->
+        <div class="contact-actions">
+          <a class="btn btn--gold"
+             href="https://outlook.office.com/book/ChenevalAdvisoryDiscoveryCall@ChenevalAdvisory.onmicrosoft.com/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Book a call
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17 17 7M9 7h8v8" />
+            </svg>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+          <p class="contact-actions__note">Book a 30-minute discovery call at a time that suits you.</p>
+        </div>
+
+        <p class="contact-divider">Or send a message</p>
 
         <form class="contact-form" action="https://formsubmit.co/jamiemerson@icloud.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New enquiry from Cheneval Advisory website" />
           <input type="hidden" name="_captcha" value="false" />
           <div class="field">
             <label for="cf-name">Name</label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" required />
+            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder=" " required />
           </div>
           <div class="field">
             <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" autocomplete="email" required />
+            <input id="cf-email" name="email" type="email" autocomplete="email" placeholder=" " required />
           </div>
           <div class="field field--full">
             <label for="cf-org">Organisation <span class="field__opt">(optional)</span></label>
@@ -919,7 +1099,7 @@
           </div>
           <div class="field field--full">
             <label for="cf-message">How can we help?</label>
-            <textarea id="cf-message" name="message" rows="5" required></textarea>
+            <textarea id="cf-message" name="message" rows="5" placeholder=" " required></textarea>
           </div>
           <div class="field field--full">
             <button class="btn btn--gold" type="submit">Send message</button>
@@ -951,6 +1131,7 @@
             <li><a href="#approach">Approach</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
