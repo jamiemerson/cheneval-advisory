@@ -114,16 +114,6 @@
     }
     .skip-link:focus { transform: translateY(0); }
 
-    .visually-hidden {
-      position: absolute;
-      width: 1px; height: 1px;
-      margin: -1px; padding: 0;
-      overflow: hidden;
-      clip-path: inset(50%);
-      white-space: nowrap;
-      border: 0;
-    }
-
     /* ============================================================
        Layout helpers
        ============================================================ */
@@ -520,42 +510,6 @@
     .contact__inner { max-width: 44rem; }
     .contact h2 { margin-bottom: 1.25rem; }
 
-    .contact-actions {
-      margin-top: 2.25rem;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.9rem 1.5rem;
-    }
-    .contact-actions__note {
-      font-size: 0.95rem;
-      color: var(--slate);
-      max-width: 34ch;
-      margin: 0;
-    }
-    .btn__icon { width: 0.7em; height: 0.7em; flex: none; }
-
-    /* "Or send a message" rule between the booking CTA and the form */
-    .contact-divider {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2.75rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--slate);
-    }
-    .contact-divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: rgba(26, 26, 26, 0.15);
-    }
-
-    .contact-divider + .contact-form { margin-top: 1.5rem; }
-
     .contact-form {
       margin-top: 2.25rem;
       display: grid;
@@ -758,19 +712,6 @@
         "sameAs": [
           "https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/"
         ],
-        "potentialAction": {
-          "@type": "ReserveAction",
-          "name": "Book a discovery call",
-          "target": {
-            "@type": "EntryPoint",
-            "urlTemplate": "https://outlook.office.com/book/ChenevalAdvisoryDiscoveryCall@ChenevalAdvisory.onmicrosoft.com/",
-            "actionPlatform": [
-              "http://schema.org/DesktopWebPlatform",
-              "http://schema.org/MobileWebPlatform"
-            ]
-          },
-          "result": { "@type": "Reservation", "name": "30-minute discovery call" }
-        },
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "AI advisory services",
@@ -1048,25 +989,6 @@
           an organisation ready to embed it across your teams — a short conversation is the
           fastest way to find out where we can help.
         </p>
-
-        <!-- ===== BOOKING CTA =====
-             Microsoft Bookings page. The same URL also appears once in the
-             JSON-LD block in <head> — update both if it ever changes. -->
-        <div class="contact-actions">
-          <a class="btn btn--gold"
-             href="https://outlook.office.com/book/ChenevalAdvisoryDiscoveryCall@ChenevalAdvisory.onmicrosoft.com/"
-             target="_blank"
-             rel="noopener noreferrer">
-            Book a call
-            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M7 17 17 7M9 7h8v8" />
-            </svg>
-            <span class="visually-hidden">(opens in a new tab)</span>
-          </a>
-          <p class="contact-actions__note">Book a 30-minute discovery call at a time that suits you.</p>
-        </div>
-
-        <p class="contact-divider">Or send a message</p>
 
         <form class="contact-form" action="https://formsubmit.co/jamiemerson@icloud.com" method="POST" novalidate>
           <input type="hidden" name="_subject" value="New enquiry from Cheneval Advisory website" />
