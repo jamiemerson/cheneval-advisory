@@ -1,7 +1,7 @@
 {
   "name": "Cheneval Advisory",
   "short_name": "Cheneval",
-  "description": "Practical AI advisory for Australian schools and people-led organisations.",
+  "description": "Practical, practitioner-led AI adoption advisory for Australian organisations.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0E2240",

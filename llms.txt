@@ -1,0 +1,71 @@
+# Cheneval Advisory
+
+> Sydney-based consultancy helping Australian organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory: executive workshops, operational workshops, adoption retainers and advisory hours.
+
+Cheneval Advisory is led by Jami Emerson Cheneval, an AI Capability and Adoption Specialist who works in enterprise AI adoption daily and runs her own AI-enabled business. The core position: AI adoption is a workforce transformation challenge, not a tooling one.
+
+- Website: https://chenevaladvisory.com.au/
+- Contact: jami@chenevaladvisory.com.au
+- Location: Sydney, NSW, Australia (serving Australia-wide)
+- ABN: 50 261 207 839
+- LinkedIn: https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/
+
+## Approach
+
+A three-phase model:
+
+1. **Diagnose** — a workshop, leadership session or fixed-scope readiness assessment identifies where AI creates real value in your context, and the workflows, capabilities and risks that need attention first.
+2. **Apply** — working alongside your people to put the highest-leverage use cases into practice with existing tools or the right new ones, designing real workflows and proving value before scaling.
+3. **Embed** — building AI literacy, setting up governance structures and implementing operating rhythms that make the change stick after the engagement ends.
+
+## Services
+
+- **Executive Workshops** — in-house sessions for leadership teams, executive groups, boards and People & Culture functions on AI literacy, governance, adoption strategy and change management. Half-day or full-day.
+- **Adoption Partner Retainer** — ongoing monthly advisory after a diagnostic: leadership sessions, async support, roadmap reviews, governance check-ins and change-management coaching.
+- **Operational Workshops** — hands-on sessions helping operational and frontline staff adopt AI in their everyday work, turning the right tools into practical, repeatable workflows.
+- **Advisory Hours** — pre-purchased advisory hours for on-demand guidance: document reviews, board prep, vendor evaluation, second opinions.
+
+## About Jami Emerson Cheneval
+
+Principal of Cheneval Advisory. Originally from Oregon City, USA. Bachelor of Information Technology, Australian Catholic University. Named 2020 NSW International Student of the Year — Higher Education. Currently works in IT at the University of Technology Sydney as an AI Capability and Adoption Specialist and Test Automation Engineer. Founder of an Australian wholefood snack bar brand built on lean operations and integrated AI workflows. 2020 Founder-in-Residence, UTS Techcelerator Female Founder Mentoring Program.
+
+## Frequently asked questions
+
+### What is AI adoption consulting?
+
+AI adoption consulting helps organisations move from buying AI tools to actually using them well. At Cheneval Advisory that means identifying where AI creates real value in your context, building the skills and confidence of your people, and putting governance in place so adoption is safe and sustainable. AI adoption is a workforce transformation challenge, not a tooling one.
+
+### How does an organisation get started with AI?
+
+Start with your people, not the technology. Most staff are already using AI informally, so the first steps are a clear policy on safe use, practical training built around the real workflows your teams already own, and a joint working group between leadership, People and Culture, and IT. A readiness workshop or leadership session is the fastest way to establish where your organisation actually stands.
+
+### What does an AI workshop for staff involve?
+
+Cheneval Advisory workshops are hands-on rather than theoretical. Staff learn how to spot the tasks in their own week where AI genuinely helps, how to brief AI tools effectively using a simple prompt structure, and how to use AI safely with enterprise tools. Attendees work on their own real tasks during the session and leave with skills they can use the next morning.
+
+### Will AI replace jobs in my organisation?
+
+AI is best understood as augmented intelligence. It takes over the repetitive parts of work, such as drafting, formatting and summarising, while people keep the judgement, relationships and accountability. In practice, well-run AI adoption gives staff time back for the parts of their roles that need human care, rather than replacing the roles themselves.
+
+### How should staff use AI safely with sensitive data?
+
+The simple rule: an enterprise tool inside your organisation's tenancy with a data agreement keeps data under your control; a public AI tool on a personal account sends data out. Personal information about staff, clients or customers should only ever go into enterprise-secured tools, and sensitive matters need named sign-off. Good AI policy makes the safe path the easy path.
+
+### What does AI adoption consulting cost in Australia?
+
+It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, monthly adoption retainers, and pre-purchased advisory hours for on-demand guidance. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact jami@chenevaladvisory.com.au.
+
+### Why choose a practitioner-led AI consultancy?
+
+Because advice lands differently when it comes from someone who does the work. Cheneval Advisory is led by a practitioner who works in enterprise AI adoption daily and runs her own AI-enabled business, rather than advising from theory. Sessions draw on what has actually worked inside real organisations, including an enterprise adoption model that took a 34-person team to AI-first ways of working within a year.
+
+## What clients say
+
+> Jami, thank you for facilitating such an outstanding AI adoption workshop at Loreto Kirribilli. Your engaging and practical approach inspired our team to think more innovatively about AI, leading many to begin building their own agents to improve productivity while helping even our late adopters understand the value of integrating AI into their everyday work.
+
+— Kevin Horstmann, Director of People and Culture, Loreto Kirribilli
+
+## Optional
+
+- [Full site](https://chenevaladvisory.com.au/): all of the above as a single landing page
+- [AI Governance Assessment](https://chenevaladvisory.com.au/ai-governance-assessment.html): self-serve governance readiness tool

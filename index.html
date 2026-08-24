@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cheneval Advisory — AI Adoption for Schools, Universities &amp; Organisations</title>
-  <meta name="description" content="Cheneval Advisory helps Australian schools, universities and organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory in Sydney." />
+  <title>Cheneval Advisory — Practical AI Adoption for Australian Organisations</title>
+  <meta name="description" content="Cheneval Advisory helps Australian organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory in Sydney — executive workshops, operational workshops, adoption retainers and advisory hours." />
   <link rel="canonical" href="https://chenevaladvisory.com.au/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="Jami Emerson Cheneval" />
@@ -13,8 +13,8 @@
   <link rel="mask-icon" href="favicon-mark.svg" color="#C5A572" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#0E2240" />
-  <meta property="og:title" content="Cheneval Advisory — AI Adoption for Schools, Universities & Organisations" />
-  <meta property="og:description" content="Cheneval Advisory helps Australian schools, universities and organisations adopt AI in practical, sustainable ways." />
+  <meta property="og:title" content="Cheneval Advisory — Practical AI Adoption for Australian Organisations" />
+  <meta property="og:description" content="Cheneval Advisory helps Australian organisations adopt AI in practical, sustainable ways." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://chenevaladvisory.com.au/" />
   <meta property="og:site_name" content="Cheneval Advisory" />
@@ -25,8 +25,8 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Cheneval Advisory logo" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Cheneval Advisory — AI Adoption for Schools, Universities & Organisations" />
-  <meta name="twitter:description" content="Practical AI adoption advisory for Australian schools, universities and organisations." />
+  <meta name="twitter:title" content="Cheneval Advisory — Practical AI Adoption for Australian Organisations" />
+  <meta name="twitter:description" content="Practical, practitioner-led AI adoption advisory for Australian organisations." />
   <meta name="twitter:image" content="https://chenevaladvisory.com.au/social-logo.png" />
   <meta name="twitter:image:alt" content="Cheneval Advisory logo" />
 
@@ -479,6 +479,58 @@
     }
 
     /* ============================================================
+       FAQ
+       ============================================================ */
+    .faq-list {
+      margin-top: clamp(2.5rem, 5vw, 3.5rem);
+      max-width: 52rem;
+      border-top: 1px solid rgba(26, 26, 26, 0.1);
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+    }
+    .faq-item summary {
+      font-family: var(--font-head);
+      font-weight: 500;
+      font-size: clamp(1.25rem, 1.1rem + 0.55vw, 1.5rem);
+      line-height: 1.25;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding-block: clamp(1.1rem, 2.5vw, 1.5rem);
+      transition: color 0.25s var(--ease);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:hover { color: var(--gold); }
+    .faq-item summary::after {
+      content: "+";
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--gold);
+      flex: none;
+      transition: transform 0.25s var(--ease);
+    }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item[open] summary { color: var(--navy); }
+    .faq-item__answer {
+      color: var(--slate);
+      max-width: 46rem;
+      margin: 0;
+      padding-bottom: clamp(1.25rem, 3vw, 1.75rem);
+    }
+    .faq-item__answer a {
+      color: var(--navy);
+      font-weight: 700;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    /* ============================================================
        Quote band
        ============================================================ */
     .quote-band { text-align: center; }
@@ -685,17 +737,21 @@
         "url": "https://chenevaladvisory.com.au/",
         "image": "https://chenevaladvisory.com.au/social-logo.png",
         "logo": "https://chenevaladvisory.com.au/social-logo.png",
-        "description": "Cheneval Advisory helps Australian schools, universities and organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory based in Sydney.",
+        "description": "Cheneval Advisory is a Sydney-based consultancy helping Australian organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory: executive workshops, operational workshops, adoption retainers and advisory hours.",
+        "slogan": "AI adoption, delivered by operators.",
         "email": "jami@chenevaladvisory.com.au",
+        "telephone": "+61413723938",
         "founder": { "@id": "https://chenevaladvisory.com.au/#jami" },
         "knowsAbout": [
           "AI adoption",
           "AI governance",
           "AI strategy",
           "Workforce transformation",
-          "Change management",
-          "AI literacy",
-          "Artificial intelligence in education"
+          "Change management for AI",
+          "AI literacy training",
+          "AI workshops for teams",
+          "AI policy and safe use",
+          "Enterprise AI enablement"
         ],
         "address": {
           "@type": "PostalAddress",
@@ -703,7 +759,10 @@
           "addressRegion": "NSW",
           "addressCountry": "AU"
         },
-        "areaServed": { "@type": "Country", "name": "Australia" },
+        "areaServed": [
+          { "@type": "State", "name": "New South Wales" },
+          { "@type": "Country", "name": "Australia" }
+        ],
         "identifier": {
           "@type": "PropertyValue",
           "propertyID": "ABN",
@@ -741,12 +800,20 @@
         "@id": "https://chenevaladvisory.com.au/#jami",
         "name": "Jami Emerson Cheneval",
         "jobTitle": "Principal",
-        "description": "Principal of Cheneval Advisory and an AI Capability and Adoption Specialist, bringing a practitioner's perspective to AI transformation across schools, universities and organisations.",
+        "description": "Principal of Cheneval Advisory and an AI Capability and Adoption Specialist, bringing a practitioner's perspective to AI transformation across Australian organisations.",
         "image": "https://chenevaladvisory.com.au/jami_photo.JPG",
+        "email": "jami@chenevaladvisory.com.au",
         "worksFor": { "@id": "https://chenevaladvisory.com.au/#organization" },
         "alumniOf": { "@type": "CollegeOrUniversity", "name": "Australian Catholic University" },
         "award": "2020 NSW International Student of the Year — Higher Education",
-        "knowsAbout": ["AI adoption", "AI governance", "AI literacy", "Test automation"],
+        "knowsAbout": [
+          "Enterprise AI adoption",
+          "AI workshops",
+          "AI governance",
+          "AI literacy",
+          "Workforce transformation",
+          "Test automation"
+        ],
         "sameAs": [
           "https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/"
         ]
@@ -757,7 +824,75 @@
         "url": "https://chenevaladvisory.com.au/",
         "name": "Cheneval Advisory",
         "inLanguage": "en-AU",
-        "publisher": { "@id": "https://chenevaladvisory.com.au/#organization" }
+        "publisher": { "@id": "https://chenevaladvisory.com.au/#organization" },
+        "hasPart": { "@id": "https://chenevaladvisory.com.au/#faq" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://chenevaladvisory.com.au/#faq",
+        "url": "https://chenevaladvisory.com.au/#faq",
+        "name": "Cheneval Advisory — frequently asked questions",
+        "inLanguage": "en-AU",
+        "isPartOf": { "@id": "https://chenevaladvisory.com.au/#website" },
+        "about": { "@id": "https://chenevaladvisory.com.au/#organization" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is AI adoption consulting?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI adoption consulting helps organisations move from buying AI tools to actually using them well. At Cheneval Advisory that means identifying where AI creates real value in your context, building the skills and confidence of your people, and putting governance in place so adoption is safe and sustainable. AI adoption is a workforce transformation challenge, not a tooling one."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does an organisation get started with AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Start with your people, not the technology. Most staff are already using AI informally, so the first steps are a clear policy on safe use, practical training built around the real workflows your teams already own, and a joint working group between leadership, People and Culture, and IT. A readiness workshop or leadership session is the fastest way to establish where your organisation actually stands."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does an AI workshop for staff involve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cheneval Advisory workshops are hands-on rather than theoretical. Staff learn how to spot the tasks in their own week where AI genuinely helps, how to brief AI tools effectively using a simple prompt structure, and how to use AI safely with enterprise tools. Attendees work on their own real tasks during the session and leave with skills they can use the next morning."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Will AI replace jobs in my organisation?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "AI is best understood as augmented intelligence. It takes over the repetitive parts of work, such as drafting, formatting and summarising, while people keep the judgement, relationships and accountability. In practice, well-run AI adoption gives staff time back for the parts of their roles that need human care, rather than replacing the roles themselves."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How should staff use AI safely with sensitive data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The simple rule: an enterprise tool inside your organisation's tenancy with a data agreement keeps data under your control; a public AI tool on a personal account sends data out. Personal information about staff, clients or customers should only ever go into enterprise-secured tools, and sensitive matters need named sign-off. Good AI policy makes the safe path the easy path."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does AI adoption consulting cost in Australia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, monthly adoption retainers, and pre-purchased advisory hours for on-demand guidance. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact jami@chenevaladvisory.com.au."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why choose a practitioner-led AI consultancy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Because advice lands differently when it comes from someone who does the work. Cheneval Advisory is led by a practitioner who works in enterprise AI adoption daily and runs her own AI-enabled business, rather than advising from theory. Sessions draw on what has actually worked inside real organisations, including an enterprise adoption model that took a 34-person team to AI-first ways of working within a year."
+            }
+          }
+        ]
       }
     ]
   }
@@ -808,9 +943,9 @@
         <p class="eyebrow">AI Adoption Advisory</p>
         <h1 id="hero-title">AI adoption, delivered by operators.</h1>
         <p class="lead">
-          Cheneval Advisory helps schools, universities and organisations adopt AI
-          in practical, sustainable ways. We combine a practitioner's perspective to AI
-          transformation and a strategic approach to implementation, using the tools daily, working inside real institutions, and
+          Cheneval Advisory helps organisations adopt AI in practical, sustainable ways.
+          We combine a practitioner's perspective to AI
+          transformation and a strategic approach to implementation, using the tools daily, working inside real workplaces, and
           helping leaders move from <em>"we should do AI"</em> to <em>"here's what we changed on Monday."</em>
         </p>
         <div class="hero__cta">
@@ -878,8 +1013,8 @@
           <div class="about-bio">
             <p>
               <strong>Jami Emerson Cheneval</strong> is the principal of Cheneval Advisory,
-              a Sydney-based consultancy helping schools, universities and organisations
-              adopt AI in practical, sustainable ways.
+              a Sydney-based consultancy helping organisations adopt AI in practical,
+              sustainable ways.
             </p>
             <p>
               Originally from Oregon City in the United States, Jami completed a Bachelor of
@@ -899,10 +1034,10 @@
             <p>
               Through Cheneval Advisory, Jami brings a practitioner's perspective to AI
               transformation — combining technical engineering discipline, founder
-              experience, and hands-on institutional AI adoption work. She believes AI
+              experience, and hands-on enterprise AI adoption work. She believes AI
               adoption is a workforce transformation challenge, not a tooling one, and
-              works closely with leaders across education, people-and-culture, and
-              operations to make it real.
+              works closely with leaders across executive, people-and-culture, and
+              operations teams to make it real.
             </p>
           </div>
         </div>
@@ -979,14 +1114,62 @@
       </div>
     </section>
 
+    <!-- ============================== FAQ ============================== -->
+    <section class="section section--white" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <p class="eyebrow">Common questions</p>
+        <h2 class="section-title" id="faq-title">Questions we hear a lot.</h2>
+        <p class="lead" style="margin-top:1rem;">
+          The questions leadership teams ask us most often, answered plainly.
+        </p>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What is AI adoption consulting?</summary>
+            <p class="faq-item__answer">AI adoption consulting helps organisations move from buying AI tools to actually using them well. At Cheneval Advisory that means identifying where AI creates real value in your context, building the skills and confidence of your people, and putting governance in place so adoption is safe and sustainable. AI adoption is a workforce transformation challenge, not a tooling one.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How does an organisation get started with AI?</summary>
+            <p class="faq-item__answer">Start with your people, not the technology. Most staff are already using AI informally, so the first steps are a clear policy on safe use, practical training built around the real workflows your teams already own, and a joint working group between leadership, People and Culture, and IT. A readiness workshop or leadership session is the fastest way to establish where your organisation actually stands.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What does an AI workshop for staff involve?</summary>
+            <p class="faq-item__answer">Cheneval Advisory workshops are hands-on rather than theoretical. Staff learn how to spot the tasks in their own week where AI genuinely helps, how to brief AI tools effectively using a simple prompt structure, and how to use AI safely with enterprise tools. Attendees work on their own real tasks during the session and leave with skills they can use the next morning.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Will AI replace jobs in my organisation?</summary>
+            <p class="faq-item__answer">AI is best understood as augmented intelligence. It takes over the repetitive parts of work, such as drafting, formatting and summarising, while people keep the judgement, relationships and accountability. In practice, well-run AI adoption gives staff time back for the parts of their roles that need human care, rather than replacing the roles themselves.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How should staff use AI safely with sensitive data?</summary>
+            <p class="faq-item__answer">The simple rule: an enterprise tool inside your organisation's tenancy with a data agreement keeps data under your control; a public AI tool on a personal account sends data out. Personal information about staff, clients or customers should only ever go into enterprise-secured tools, and sensitive matters need named sign-off. Good AI policy makes the safe path the easy path.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What does AI adoption consulting cost in Australia?</summary>
+            <p class="faq-item__answer">It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, monthly adoption retainers, and pre-purchased advisory hours for on-demand guidance. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why choose a practitioner-led AI consultancy?</summary>
+            <p class="faq-item__answer">Because advice lands differently when it comes from someone who does the work. Cheneval Advisory is led by a practitioner who works in enterprise AI adoption daily and runs her own AI-enabled business, rather than advising from theory. Sessions draw on what has actually worked inside real organisations, including an enterprise adoption model that took a 34-person team to AI-first ways of working within a year.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== CONTACT ============================== -->
     <section class="section section--off contact" id="contact" aria-labelledby="contact-title">
       <div class="container contact__inner">
         <p class="eyebrow">Let's talk</p>
         <h2 class="section-title" id="contact-title">Bring clarity to your next AI decision.</h2>
         <p class="lead" style="margin-top:1rem;">
-          Whether you're a school or university leadership team starting to think about AI, or
-          an organisation ready to embed it across your teams — a short conversation is the
+          Whether you're a leadership team starting to think about AI, or an organisation
+          ready to embed it across your teams — a short conversation is the
           fastest way to find out where we can help.
         </p>
 
@@ -1040,6 +1223,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
