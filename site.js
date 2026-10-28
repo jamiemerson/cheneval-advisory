@@ -1,8 +1,7 @@
 // Progressive enhancement only. The page is complete without this file.
-//   - mobile navigation, active nav state, FAQ open/close animation
-//   - fade-up reveals, once per element
-//   - the header goes navy glass while it sits over a dark section
-//   - [data-tilt] cards lean toward the cursor with a soft sheen
+//   - mobile navigation, active nav state, header rule on scroll, header goes navy over dark sections
+//   - fade-up reveals, FAQ open/close animation, tilt sheen on the work tiles
+//   - the "running on its own" card cycles through a short list of automations
 //   - Lenis smooth scrolling on fine-pointer devices
 import Lenis from 'lenis';
 
@@ -41,7 +40,7 @@ if (navLinks.length && 'IntersectionObserver' in window) {
   targets.forEach((t) => io.observe(t));
 }
 
-/* ---------- Fade-up reveal ---------- */
+/* ---------- Reveal ---------- */
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
   if (reduceMotion || !('IntersectionObserver' in window)) {
@@ -51,7 +50,7 @@ if (revealEls.length) {
       for (const entry of entries) {
         if (entry.isIntersecting) { entry.target.classList.add('is-visible'); io.unobserve(entry.target); }
       }
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
     revealEls.forEach((el) => {
       const r = el.getBoundingClientRect();
       if (r.top < innerHeight && r.bottom > 0) el.classList.add('is-visible');
@@ -60,7 +59,7 @@ if (revealEls.length) {
   }
 }
 
-/* ---------- FAQ: native details, smooth open and close ---------- */
+/* ---------- FAQ ---------- */
 document.querySelectorAll('details.faq-item').forEach((details) => {
   const summary = details.querySelector('summary');
   const panel = details.querySelector('.faq-item__answer');
@@ -86,7 +85,7 @@ document.querySelectorAll('details.faq-item').forEach((details) => {
   });
 });
 
-/* ---------- Header: navy glass while over a dark section ---------- */
+/* ---------- Header: rule on scroll, navy over dark sections ---------- */
 const header = document.getElementById('siteHeader');
 if (header) {
   const luminance = (css) => {
@@ -99,6 +98,7 @@ if (header) {
   let raf = 0;
   const check = () => {
     raf = 0;
+    header.classList.toggle('is-scrolled', scrollY > 8);
     const y = header.getBoundingClientRect().bottom + 2;
     const hits = document.elementsFromPoint(innerWidth / 2, y).filter((e) => !header.contains(e));
     let dark = false;
@@ -117,44 +117,62 @@ if (header) {
   setTimeout(check, 300);
 }
 
-/* ---------- Tilt toward the cursor ---------- */
+/* ---------- Running on its own: cycle the list ---------- */
+const running = document.querySelector('#running .running__list');
+if (running && !reduceMotion) {
+  const steps = [
+    ['Receipt received', 'inbox'], ['Supplier matched', 'Xero'], ['Bill coded and filed', 'Xero'],
+    ['Approval requested', 'Teams'], ['Approved', 'Jami'], ['Stock levels updated', 'Shopify'],
+    ['Weekly summary drafted', 'Claude'], ['Report sent to the team', 'Outlook'],
+  ];
+  let i = 4;
+  setInterval(() => {
+    const [text, via] = steps[i % steps.length];
+    i++;
+    const li = document.createElement('li');
+    li.className = 'is-latest';
+    li.innerHTML = `<span></span><span></span>`;
+    li.children[0].textContent = text;
+    li.children[1].textContent = via;
+    running.querySelectorAll('li').forEach((el) => el.classList.remove('is-latest'));
+    running.appendChild(li);
+    while (running.children.length > 4) running.removeChild(running.firstElementChild);
+  }, 2600);
+}
+
+/* ---------- Tilt sheen on work tiles ---------- */
 if (finePointer && !reduceMotion) {
   document.querySelectorAll('[data-tilt]').forEach((el) => {
-    const max = Number(el.dataset.tilt) || 6;
-    const face = el.querySelector('.build-card__frame') || el;
+    const max = Number(el.dataset.tilt) || 4;
     let raf = 0, rx = 0, ry = 0, tx = 0, ty = 0;
     const step = () => {
       raf = 0;
       rx += (tx - rx) * 0.14;
       ry += (ty - ry) * 0.14;
-      face.style.transform = `perspective(1100px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(0)`;
+      el.style.transform = `perspective(1100px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
       if (Math.abs(tx - rx) > 0.02 || Math.abs(ty - ry) > 0.02) raf = requestAnimationFrame(step);
-      else if (tx === 0 && ty === 0) face.style.transform = '';
+      else if (tx === 0 && ty === 0) el.style.transform = '';
     };
     const loop = () => { if (!raf) raf = requestAnimationFrame(step); };
     el.addEventListener('pointermove', (e) => {
-      const r = face.getBoundingClientRect();
+      const r = el.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width;
       const py = (e.clientY - r.top) / r.height;
       tx = (0.5 - py) * max * 2;
       ty = (px - 0.5) * max * 2;
-      face.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
-      face.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
+      el.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
+      el.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
       el.classList.add('is-tilting');
       loop();
     });
-    el.addEventListener('pointerleave', () => {
-      tx = 0; ty = 0;
-      el.classList.remove('is-tilting');
-      loop();
-    });
+    el.addEventListener('pointerleave', () => { tx = 0; ty = 0; el.classList.remove('is-tilting'); loop(); });
   });
 }
 
 /* ---------- Smooth scrolling ---------- */
 if (finePointer && !reduceMotion) {
   try {
-    const lenis = new Lenis({ lerp: 0.09, anchors: { offset: -88 } });
+    const lenis = new Lenis({ lerp: 0.09, anchors: { offset: -92 } });
     html.classList.add('lenis-on');
     window.__lenis = lenis;
     const raf = (t) => { lenis.raf(t); requestAnimationFrame(raf); };
