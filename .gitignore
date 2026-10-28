@@ -1,3 +1,6 @@
 # Private documents: never publish to the live site
 *.docx
 *.pdf
+# Raw photo originals: export web copies instead
+jami-21.jpg
+jami-22.jpg

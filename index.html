@@ -525,33 +525,20 @@
       grid-template-columns: 1fr;
       align-items: center;
     }
-    .figure-stage {
-      position: relative;
-      overflow: hidden;
-      aspect-ratio: 4 / 5;
+    .about-photo {
       width: 100%;
-      max-width: 300px;
-      background:
-        radial-gradient(70% 60% at 50% 100%, rgba(197, 165, 114, 0.22), transparent 70%),
-        linear-gradient(180deg, var(--sand), #E4DCCC);
-      border-top: 1px solid var(--gold);
+      height: auto;
+      max-width: 460px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
       border-radius: var(--radius);
       box-shadow: var(--shadow-warm);
-    }
-    .figure-photo {
-      position: absolute;
-      left: 50%;
-      bottom: -2%;
-      height: 104%;
-      width: auto;
-      max-width: none;
-      transform: translateX(-50%);
     }
     .about-bio p { color: var(--slate); margin-bottom: 1rem; }
     .about-bio p:first-of-type { color: var(--charcoal); font-size: 1.15rem; }
     .about-bio strong { color: var(--charcoal); font-weight: 700; }
     @media (min-width: 860px) {
-      .about-grid { grid-template-columns: 300px 1fr; gap: clamp(2.5rem, 6vw, 5rem); }
+      .about-grid { grid-template-columns: 460px 1fr; gap: clamp(2.5rem, 6vw, 5rem); }
       .about-copy { padding-right: 1rem; }
     }
 
@@ -669,21 +656,50 @@
     }
 
     /* ============================================================
-       Quote breakout
+       Photo band: full-bleed photo under a navy tint, one line over it
        ============================================================ */
-    .quote-band { position: relative; overflow: hidden; isolation: isolate; text-align: center; }
-    .quote-band blockquote {
-      margin: 0 auto;
-      max-width: 26ch;
+    .photo-band {
+      position: relative;
+      isolation: isolate;
+      min-height: clamp(520px, 72vh, 760px);
+      display: flex;
+      align-items: center;
+      background: var(--navy);
+      color: var(--offwhite);
+      overflow: hidden;
+    }
+    .photo-band__img, .photo-band__img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 35%;
+      z-index: -1;
+    }
+    .photo-band__img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(14, 34, 64, 0.88) 0%, rgba(14, 34, 64, 0.62) 55%, rgba(14, 34, 64, 0.35) 100%),
+        var(--navy);
+      background-blend-mode: normal, multiply;
+      mix-blend-mode: multiply;
+    }
+    .photo-band__inner { padding-block: clamp(4rem, 8vw, 6rem); }
+    .photo-band blockquote {
+      margin: 0;
+      max-width: 22ch;
       font-family: var(--font-head);
       font-weight: 300;
       font-style: italic;
-      font-size: clamp(1.9rem, 1.2rem + 3.4vw, 3.6rem);
+      font-size: clamp(1.9rem, 1.2rem + 3.2vw, 3.6rem);
       line-height: 1.15;
-      color: var(--navy);
+      color: var(--offwhite);
     }
-    .quote-band .quote-mark { color: var(--gold); font-style: normal; }
-    .quote-band cite {
+    .photo-band .quote-mark { color: var(--gold); font-style: normal; }
+    .photo-band cite {
       display: block;
       margin-top: 1.75rem;
       font-family: var(--font-body);
@@ -692,9 +708,9 @@
       font-size: var(--fs-label);
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold-deep);
+      color: var(--gold);
     }
-    .quote-band__rule { display: block; width: 64px; height: 1px; background: var(--gold); margin: 0 auto 2rem; }
+    .quote-band__rule { display: block; width: 64px; height: 1px; background: var(--gold); margin: 0 0 2rem; }
 
     /* ============================================================
        FAQ
@@ -1025,22 +1041,6 @@
           },
           {
             "@type": "Question",
-            "name": "Can you build our website or online store?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Cheneval Advisory builds conversion-focused websites, Shopify stores, landing pages, dashboards and small web apps, structured for search, including AI search, and built for whoever updates them next year. The Stoke Bites store and this site are both examples."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does a build take?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Most forward deployed engagements run two to twelve weeks, depending on how many workflows are in scope and how many systems need connecting. Smaller builds sit at the short end of that range, and broader rollouts are scoped in phases so something useful is running early."
-            }
-          },
-          {
-            "@type": "Question",
             "name": "What is a forward deployed AI engineer?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -1057,38 +1057,6 @@
           },
           {
             "@type": "Question",
-            "name": "What is AI adoption consulting?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "AI adoption consulting helps organisations move from buying AI tools to actually using them well. At Cheneval Advisory that means identifying where AI creates real value in your context, building the skills and confidence of your people, and putting governance in place so adoption is safe and sustainable. AI adoption is a workforce transformation challenge, not a tooling one."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How does an organisation get started with AI?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Start with your people, not the technology. Most staff are already using AI informally, so the first steps are a clear policy on safe use, practical training built around the real workflows your teams already own, and a joint working group between leadership, People and Culture, and IT. A readiness workshop or leadership session is the fastest way to establish where your organisation actually stands."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What does an AI workshop for staff involve?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Cheneval Advisory workshops are hands-on rather than theoretical. Staff learn how to spot the tasks in their own week where AI genuinely helps, how to brief AI tools effectively using a simple prompt structure, and how to use AI safely with enterprise tools. Attendees work on their own real tasks during the session and leave with skills they can use the next morning."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Will AI replace jobs in my organisation?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "AI is best understood as augmented intelligence. It takes over the repetitive parts of work, such as drafting, formatting and summarising, while people keep the judgement, relationships and accountability. In practice, well-run AI adoption gives staff time back for the parts of their roles that need human care, rather than replacing the roles themselves."
-            }
-          },
-          {
-            "@type": "Question",
             "name": "How should staff use AI safely with sensitive data?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -1101,14 +1069,6 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, forward deployed build engagements of two to twelve weeks, monthly adoption retainers, and pre-purchased advisory hours. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact jami@chenevaladvisory.com.au."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why choose a practitioner-led AI consultancy?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Because advice lands differently when it comes from someone who does the work. Cheneval Advisory is led by a practitioner who works in enterprise AI adoption daily and runs her own AI-enabled business, rather than advising from theory. Sessions draw on what has actually worked inside real organisations, including an enterprise adoption model that took a 34-person team to AI-first ways of working within a year."
             }
           }
         ]
@@ -1233,9 +1193,7 @@
     <section class="section section--off about" id="about" aria-labelledby="about-title">
       <div class="container about-grid">
         <div class="about-figure reveal">
-          <div class="figure-stage">
-            <img class="figure-photo" src="lab/figure-jami.webp" alt="Jami Emerson Cheneval, standing in a dark blazer and white top, smiling" width="500" height="900" loading="lazy" decoding="async" />
-          </div>
+          <img class="about-photo" src="about-jami.webp" alt="Jami Emerson Cheneval working on a laptop on a linen couch by a window" width="920" height="1150" loading="lazy" decoding="async" />
         </div>
 
         <div class="about-copy">
@@ -1428,9 +1386,13 @@
       </div>
     </section>
 
-    <!-- ============================== QUOTE BAND ============================== -->
-    <section class="section section--off quote-band" aria-label="Our point of view">
-      <div class="container reveal">
+    <!-- ============================== PHOTO BAND ============================== -->
+    <section class="photo-band on-dark" id="viewpoint" aria-label="Our point of view">
+      <picture class="photo-band__img" aria-hidden="true">
+        <source media="(max-width: 767px)" srcset="band-jami-m.webp" />
+        <img src="band-jami.webp" alt="" width="1920" height="1010" loading="lazy" decoding="async" />
+      </picture>
+      <div class="container photo-band__inner reveal">
         <span class="quote-band__rule" aria-hidden="true"></span>
         <blockquote>
           <span class="quote-mark" aria-hidden="true">"</span>AI adoption isn't a tooling problem. It's a workforce transformation problem.<span class="quote-mark" aria-hidden="true">"</span>
@@ -1467,16 +1429,6 @@
           </details>
 
           <details class="faq-item">
-            <summary>Can you build our website or online store?</summary>
-            <p class="faq-item__answer">Yes. Cheneval Advisory builds conversion-focused websites, Shopify stores, landing pages, dashboards and small web apps, structured for search, including AI search, and built for whoever updates them next year. The Stoke Bites store and this site are both examples.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>How long does a build take?</summary>
-            <p class="faq-item__answer">Most forward deployed engagements run two to twelve weeks, depending on how many workflows are in scope and how many systems need connecting. Smaller builds sit at the short end of that range, and broader rollouts are scoped in phases so something useful is running early.</p>
-          </details>
-
-          <details class="faq-item">
             <summary>What is a forward deployed AI engineer?</summary>
             <p class="faq-item__answer">A forward deployed AI engineer works inside the client's business rather than from a vendor's office, building and adapting AI tools around the client's real workflows, data and people. At Cheneval Advisory that means scoping the problem with your team, building the automation or agent using the systems you already have, and staying until it is working and owned. It is the opposite of a strategy deck or a software licence with no one to make it work.</p>
           </details>
@@ -1487,26 +1439,6 @@
           </details>
 
           <details class="faq-item">
-            <summary>What is AI adoption consulting?</summary>
-            <p class="faq-item__answer">AI adoption consulting helps organisations move from buying AI tools to actually using them well. At Cheneval Advisory that means identifying where AI creates real value in your context, building the skills and confidence of your people, and putting governance in place so adoption is safe and sustainable. AI adoption is a workforce transformation challenge, not a tooling one.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>How does an organisation get started with AI?</summary>
-            <p class="faq-item__answer">Start with your people, not the technology. Most staff are already using AI informally, so the first steps are a clear policy on safe use, practical training built around the real workflows your teams already own, and a joint working group between leadership, People and Culture, and IT. A readiness workshop or leadership session is the fastest way to establish where your organisation actually stands.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>What does an AI workshop for staff involve?</summary>
-            <p class="faq-item__answer">Cheneval Advisory workshops are hands-on rather than theoretical. Staff learn how to spot the tasks in their own week where AI genuinely helps, how to brief AI tools effectively using a simple prompt structure, and how to use AI safely with enterprise tools. Attendees work on their own real tasks during the session and leave with skills they can use the next morning.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Will AI replace jobs in my organisation?</summary>
-            <p class="faq-item__answer">AI is best understood as augmented intelligence. It takes over the repetitive parts of work, such as drafting, formatting and summarising, while people keep the judgement, relationships and accountability. In practice, well-run AI adoption gives staff time back for the parts of their roles that need human care, rather than replacing the roles themselves.</p>
-          </details>
-
-          <details class="faq-item">
             <summary>How should staff use AI safely with sensitive data?</summary>
             <p class="faq-item__answer">The simple rule: an enterprise tool inside your organisation's tenancy with a data agreement keeps data under your control; a public AI tool on a personal account sends data out. Personal information about staff, clients or customers should only ever go into enterprise-secured tools, and sensitive matters need named sign-off. Good AI policy makes the safe path the easy path.</p>
           </details>
@@ -1514,11 +1446,6 @@
           <details class="faq-item">
             <summary>What does AI adoption consulting cost in Australia?</summary>
             <p class="faq-item__answer">It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, forward deployed build engagements of two to twelve weeks, monthly adoption retainers, and pre-purchased advisory hours. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>.</p>
-          </details>
-
-          <details class="faq-item">
-            <summary>Why choose a practitioner-led AI consultancy?</summary>
-            <p class="faq-item__answer">Because advice lands differently when it comes from someone who does the work. Cheneval Advisory is led by a practitioner who works in enterprise AI adoption daily and runs her own AI-enabled business, rather than advising from theory. Sessions draw on what has actually worked inside real organisations, including an enterprise adoption model that took a 34-person team to AI-first ways of working within a year.</p>
           </details>
         </div>
       </div>
