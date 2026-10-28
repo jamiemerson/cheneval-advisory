@@ -1,0 +1,3 @@
+# Private documents: never publish to the live site
+*.docx
+*.pdf
