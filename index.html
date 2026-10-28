@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cheneval Advisory — Practical AI Adoption for Australian Organisations</title>
-  <meta name="description" content="Cheneval Advisory helps Australian organisations adopt AI in practical, sustainable ways. Practitioner-led AI adoption advisory in Sydney — executive workshops, operational workshops, adoption retainers and advisory hours." />
+  <title>Cheneval Advisory — AI Adoption and Automation, Built and Delivered by a Practitioner</title>
+  <meta name="description" content="Cheneval Advisory helps Australian organisations put AI to work. Forward deployed AI practitioner in Sydney: workflow automation, AI agents, websites and tools, plus the workshops and change management that make adoption stick." />
   <link rel="canonical" href="https://chenevaladvisory.com.au/" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="author" content="Jami Emerson Cheneval" />
@@ -14,7 +14,7 @@
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#0E2240" />
   <meta property="og:title" content="Cheneval Advisory — Practical AI Adoption for Australian Organisations" />
-  <meta property="og:description" content="Cheneval Advisory helps Australian organisations adopt AI in practical, sustainable ways." />
+  <meta property="og:description" content="Forward deployed AI practitioner. Builds the automations, then makes adoption stick." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://chenevaladvisory.com.au/" />
   <meta property="og:site_name" content="Cheneval Advisory" />
@@ -26,35 +26,68 @@
   <meta property="og:image:alt" content="Cheneval Advisory logo" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Cheneval Advisory — Practical AI Adoption for Australian Organisations" />
-  <meta name="twitter:description" content="Practical, practitioner-led AI adoption advisory for Australian organisations." />
+  <meta name="twitter:description" content="Forward deployed AI practitioner. Builds the automations, then makes adoption stick." />
   <meta name="twitter:image" content="https://chenevaladvisory.com.au/social-logo.png" />
   <meta name="twitter:image:alt" content="Cheneval Advisory logo" />
 
-  <!-- Google Fonts: Cormorant Garamond (headings) + Lato (body) -->
+  <!-- Google Fonts: Cormorant Garamond (display) + Lato (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="fetch" href="lab/mac-draco.glb" crossorigin />
+
+  <script>document.documentElement.classList.add('js');</script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/",
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.mjs"
+    }
+  }
+  </script>
 
   <style>
     /* ============================================================
        Design tokens
        ============================================================ */
     :root {
-      --navy:      #0E2240;
-      --gold:      #C5A572;
-      --charcoal:  #1A1A1A;
-      --offwhite:  #F5F2EC;
-      --slate:     #5A6473;
-      --white:     #FFFFFF;
+      --navy:       #0E2240;
+      --navy-deep:  #091A33;
+      --navy-soft:  #16305A;
+      --gold:       #C5A572;
+      --gold-deep:  #A3885A;
+      --charcoal:   #1A1A1A;
+      --offwhite:   #F5F2EC;
+      --sand:       #ECE6D9;
+      --slate:      #5A6473;
+      --white:      #FFFFFF;
+
+      --rule:        rgba(14, 34, 64, 0.12);
+      --rule-strong: rgba(14, 34, 64, 0.22);
+      --rule-dark:   rgba(245, 242, 236, 0.14);
+      --shadow-warm: 0 30px 70px rgba(14, 34, 64, 0.16), 0 2px 8px rgba(14, 34, 64, 0.06);
 
       --font-head: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-      --font-body: "Lato", system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif;
+      --font-body: "Lato", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 
-      --maxw: 1140px;
-      --pad: clamp(1.25rem, 5vw, 2.5rem);
-      --section-y: clamp(4rem, 9vw, 7rem);
+      --fs-h1:   clamp(3rem, 1.5rem + 5.6vw, 6rem);
+      --fs-h2:   clamp(2.2rem, 1.5rem + 2.6vw, 3.6rem);
+      --fs-h3:   clamp(1.55rem, 1.3rem + 0.9vw, 2rem);
+      --fs-lead: clamp(1.1rem, 1rem + 0.45vw, 1.3rem);
+      --fs-body: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+      --fs-small: 0.9rem;
+      --fs-label: 0.72rem;
 
-      --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+      --maxw: 1180px;
+      --pad: clamp(1.25rem, 5vw, 3rem);
+      --section-y: clamp(5rem, 10vw, 8.5rem);
+      --header-h: 76px;
+      --radius: 3px;
+
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --ease: var(--ease-out);
     }
 
     /* ============================================================
@@ -64,48 +97,70 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 88px;
+      scroll-padding-top: calc(var(--header-h) + 12px);
       -webkit-text-size-adjust: 100%;
+      overflow-x: clip;
+      scrollbar-color: var(--gold-deep) transparent;
     }
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-stopped { overflow: hidden; }
 
     body {
       margin: 0;
       font-family: var(--font-body);
       font-weight: 400;
       color: var(--charcoal);
-      background: var(--white);
+      background: var(--navy);
       line-height: 1.65;
-      font-size: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+      font-size: var(--fs-body);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: clip;
+      caret-color: var(--gold);
     }
+    /* Paper grain over everything: fixed, inert, barely there. */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      pointer-events: none;
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+
+    ::selection { background: var(--gold); color: var(--navy); }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--gold-deep); border-radius: 10px; border: 3px solid var(--offwhite); }
 
     img { max-width: 100%; display: block; }
 
-    h1, h2, h3 {
+    h1, h2, h3, h4 {
       font-family: var(--font-head);
-      font-weight: 500;
-      line-height: 1.1;
+      font-weight: 400;
+      line-height: 1.05;
       margin: 0;
-      letter-spacing: 0.005em;
+      letter-spacing: -0.012em;
+      text-wrap: balance;
     }
+    h3, h4 { font-weight: 500; line-height: 1.15; letter-spacing: -0.005em; }
 
-    p { margin: 0 0 1rem; }
+    p { margin: 0 0 1rem; text-wrap: pretty; }
     p:last-child { margin-bottom: 0; }
 
     a { color: inherit; text-decoration: none; }
 
-    :focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
-    }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
     .skip-link {
       position: absolute;
       left: 0; top: 0;
       transform: translateY(-120%);
       background: var(--gold);
-      color: var(--charcoal);
+      color: var(--navy);
       padding: 0.75rem 1.25rem;
       font-weight: 700;
       letter-spacing: 0.05em;
@@ -123,44 +178,97 @@
       margin-inline: auto;
       padding-inline: var(--pad);
     }
-
     .section { padding-block: var(--section-y); }
-
-    .section--navy   { background: var(--navy);     color: var(--offwhite); }
-    .section--off    { background: var(--offwhite); color: var(--charcoal); }
-    .section--white  { background: var(--white);    color: var(--charcoal); }
+    .section--navy  { background: var(--navy);     color: var(--offwhite); }
+    .section--off   { background: var(--offwhite); color: var(--charcoal); }
+    .section--white { background: var(--white);    color: var(--charcoal); }
 
     .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.22em;
+      font-size: var(--fs-label);
+      letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin: 0 0 1.25rem;
+      color: var(--gold-deep);
+      margin: 0 0 1.4rem;
     }
+    .eyebrow::before { content: ""; display: block; width: 28px; height: 1px; background: var(--gold); }
+    .on-dark .eyebrow, .section--navy .eyebrow { color: var(--gold); }
 
-    .section-title {
-      font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem);
-      max-width: 22ch;
-    }
-
+    .section-title { font-size: var(--fs-h2); max-width: 20ch; }
     .lead {
-      font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+      font-size: var(--fs-lead);
+      font-weight: 300;
+      line-height: 1.55;
       color: var(--slate);
-      max-width: 60ch;
+      max-width: 58ch;
     }
-    .section--navy .lead { color: rgba(245, 242, 236, 0.82); }
+    .on-dark .lead, .section--navy .lead { color: rgba(245, 242, 236, 0.78); }
+
+    /* Two-column editorial split: sticky heading on the left, content on the right. */
+    .split { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+    .split__aside { align-self: start; }
+    @media (min-width: 900px) {
+      .split { grid-template-columns: 5fr 7fr; gap: clamp(2rem, 6vw, 5rem); }
+      .split__aside { position: sticky; top: calc(var(--header-h) + 2rem); }
+    }
+
+    /* Numbered rows: hairlines, large serif numeral, hover lifts the title to gold. */
+    .rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+    .row {
+      display: grid;
+      grid-template-columns: 4.5rem 1fr;
+      gap: 0 1rem;
+      padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+      border-bottom: 1px solid var(--rule);
+      transition: padding-left 0.5s var(--ease);
+    }
+    .row__num {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      font-weight: 400;
+      line-height: 1;
+      color: var(--gold);
+      padding-top: 0.35rem;
+      font-variant-numeric: lining-nums;
+    }
+    .row h3 { font-size: var(--fs-h3); margin-bottom: 0.55rem; transition: color 0.4s var(--ease); }
+    .row p { color: var(--slate); max-width: 58ch; }
+    @media (hover: hover) {
+      .row:hover { padding-left: 0.5rem; }
+      .row:hover h3 { color: var(--gold-deep); }
+    }
+    .on-dark .rows, .section--navy .rows { border-top-color: var(--rule-dark); }
+    .on-dark .row, .section--navy .row { border-bottom-color: var(--rule-dark); }
+    .on-dark .row p, .section--navy .row p { color: rgba(245, 242, 236, 0.72); }
+    .on-dark .row:hover h3, .section--navy .row:hover h3 { color: var(--gold); }
+
+    .tools {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--slate);
+    }
+    .section--navy .tools { color: rgba(197, 165, 114, 0.8); }
+
+    /* ============================================================
+       Reveal (fade-up once, JS only)
+       ============================================================ */
+    html.js .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+      transition-delay: calc(var(--i, 0) * 90ms);
+    }
+    html.js .reveal.is-visible { opacity: 1; transform: none; }
 
     /* ============================================================
        Logo lockup
        ============================================================ */
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.85rem;
-      line-height: 1;
-    }
+    .logo { display: inline-flex; align-items: center; gap: 0.85rem; line-height: 1; }
     .logo__name {
       font-family: var(--font-head);
       font-weight: 600;
@@ -168,12 +276,7 @@
       letter-spacing: 0.04em;
       color: currentColor;
     }
-    .logo__rule {
-      width: 28px;
-      height: 1px;
-      background: var(--gold);
-      flex: none;
-    }
+    .logo__rule { width: 28px; height: 1px; background: var(--gold); flex: none; }
     .logo__sub {
       font-family: var(--font-body);
       font-weight: 700;
@@ -187,41 +290,29 @@
        Buttons
        ============================================================ */
     .btn {
+      position: relative;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 0.85rem 1.6rem;
+      padding: 0.95rem 1.7rem;
       border: 1px solid transparent;
-      border-radius: 0;
+      border-radius: var(--radius);
       cursor: pointer;
-      transition: background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease);
+      overflow: hidden;
+      transition: background-color 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.25s var(--ease), box-shadow 0.4s var(--ease);
     }
-    .btn:active { transform: translateY(1px); }
-
-    .btn--gold {
-      background: var(--gold);
-      color: var(--charcoal);
-    }
-    .btn--gold:hover { background: #b59560; }
-
-    .btn--ghost {
-      background: transparent;
-      color: var(--offwhite);
-      border-color: rgba(197, 165, 114, 0.6);
-    }
+    .btn:active { transform: scale(0.98); }
+    .btn--gold { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .btn--gold:hover { background: #d4b784; border-color: #d4b784; box-shadow: 0 10px 30px rgba(197, 165, 114, 0.3); }
+    .btn--ghost { background: transparent; color: var(--offwhite); border-color: rgba(197, 165, 114, 0.55); }
     .btn--ghost:hover { border-color: var(--gold); background: rgba(197, 165, 114, 0.12); }
-
-    .btn--outline-dark {
-      background: transparent;
-      color: var(--navy);
-      border-color: var(--navy);
-    }
+    .btn--outline-dark { background: transparent; color: var(--navy); border-color: var(--navy); }
     .btn--outline-dark:hover { background: var(--navy); color: var(--offwhite); }
 
     /* ============================================================
@@ -231,50 +322,62 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: saturate(150%) blur(8px);
-      border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+      background: rgba(245, 242, 236, 0.86);
+      color: var(--navy);
+      backdrop-filter: saturate(150%) blur(12px);
+      -webkit-backdrop-filter: saturate(150%) blur(12px);
+      border-bottom: 1px solid rgba(14, 34, 64, 0.08);
+      transition: background-color 0.5s var(--ease), color 0.5s var(--ease), border-color 0.5s var(--ease);
     }
     .site-header .container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 72px;
+      min-height: var(--header-h);
       gap: 1rem;
     }
-    .site-header .logo { color: var(--navy); }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: clamp(1.25rem, 3vw, 2.25rem);
-    }
+    .site-header .logo { color: var(--navy); transition: color 0.5s var(--ease); }
+    .nav { display: flex; align-items: center; gap: clamp(1.25rem, 3vw, 2.25rem); }
     .nav__list {
       display: flex;
       align-items: center;
-      gap: clamp(1.25rem, 3vw, 2.25rem);
+      gap: clamp(1.1rem, 2.6vw, 2rem);
       list-style: none;
       margin: 0;
       padding: 0;
     }
     .nav__link {
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--charcoal);
+      color: var(--navy);
       padding: 0.4rem 0;
       position: relative;
+      transition: color 0.5s var(--ease);
     }
     .nav__link::after {
       content: "";
       position: absolute;
       left: 0; bottom: -2px;
-      width: 0; height: 2px;
+      width: 0; height: 1px;
       background: var(--gold);
-      transition: width 0.25s var(--ease);
+      transition: width 0.35s var(--ease);
     }
-    .nav__link:hover::after, .nav__link:focus-visible::after { width: 100%; }
+    .nav__link:hover::after, .nav__link:focus-visible::after, .nav__link.is-active::after { width: 100%; }
+    .nav .btn--outline-dark { padding: 0.7rem 1.2rem; font-size: 0.72rem; }
+
+    /* Over a dark section: the header goes navy glass. */
+    .site-header.is-dark {
+      background: rgba(14, 34, 64, 0.72);
+      color: var(--offwhite);
+      border-bottom-color: rgba(197, 165, 114, 0.18);
+    }
+    .site-header.is-dark .logo, .site-header.is-dark .nav__link { color: var(--offwhite); }
+    .site-header.is-dark .btn--outline-dark { color: var(--offwhite); border-color: rgba(197, 165, 114, 0.6); }
+    .site-header.is-dark .btn--outline-dark:hover { background: rgba(197, 165, 114, 0.14); color: var(--offwhite); }
+    .site-header.is-dark .nav-toggle { border-color: rgba(245, 242, 236, 0.3); }
+    .site-header.is-dark .nav-toggle__bar { background: var(--offwhite); }
 
     .nav-toggle {
       display: none;
@@ -285,214 +388,323 @@
       height: 44px;
       padding: 0;
       background: transparent;
-      border: 1px solid rgba(26, 26, 26, 0.2);
-      border-radius: 0;
+      border: 1px solid rgba(14, 34, 64, 0.2);
+      border-radius: var(--radius);
       cursor: pointer;
+      transition: border-color 0.5s var(--ease);
     }
     .nav-toggle__bar {
       display: block;
       width: 22px;
-      height: 2px;
+      height: 1.5px;
       margin-inline: auto;
       background: var(--navy);
-      transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+      transition: transform 0.35s var(--ease), opacity 0.25s var(--ease), background-color 0.5s var(--ease);
     }
 
     /* ============================================================
-       Hero
+       Scene: hero + approach on one pinned stage
        ============================================================ */
-    .hero {
+    .scene {
+      position: relative;
       background: var(--navy);
       color: var(--offwhite);
-      padding-block: clamp(5rem, 12vw, 9rem);
-      position: relative;
-      overflow: hidden;
+      isolation: isolate;
     }
-    .hero::after {
-      content: "";
+    .scene-bg {
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(120% 90% at 85% 0%, rgba(197, 165, 114, 0.14), transparent 55%);
+        radial-gradient(90% 70% at 80% 10%, rgba(197, 165, 114, 0.16), transparent 60%),
+        radial-gradient(60% 50% at 20% 100%, rgba(22, 48, 90, 0.9), transparent 70%),
+        var(--navy);
       pointer-events: none;
     }
-    .hero__inner { position: relative; max-width: 56rem; }
-    .hero h1 {
-      font-size: clamp(2.75rem, 1.8rem + 5vw, 5rem);
-      font-weight: 500;
-      margin: 0 0 1.5rem;
-      letter-spacing: -0.01em;
-    }
-    .hero .lead {
-      color: rgba(245, 242, 236, 0.82);
-      margin-bottom: 2.25rem;
-    }
-    .hero__cta { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+    .scene-canvas { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s var(--ease); display: none; }
+    .scene-canvas[data-ready="true"] { opacity: 1; }
+    .scene-canvas canvas { display: block; width: 100% !important; height: 100% !important; }
 
-    /* ============================================================
-       Approach — 3 columns
-       ============================================================ */
-    .grid-3 {
-      display: grid;
-      gap: clamp(1.5rem, 4vw, 2.75rem);
-      grid-template-columns: 1fr;
-      margin-top: clamp(2.5rem, 5vw, 3.5rem);
-    }
-    .approach-card { position: relative; padding-top: 1.75rem; }
-    .approach-card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 40px; height: 2px;
-      background: var(--gold);
-    }
-    .approach-card__step {
+    /* Static layout: no JS, or before the scene is live. */
+    .scene-stage { position: relative; }
+    .scene-copy { position: relative; }
+    .scene-hero { padding-block: clamp(6rem, 14vw, 10rem) clamp(4rem, 8vw, 6rem); max-width: 40rem; }
+    .scene-hero h1 { font-size: var(--fs-h1); margin: 0 0 1.6rem; }
+    .scene-hero .lead { color: rgba(245, 242, 236, 0.8); margin-bottom: 2.4rem; }
+    .hero__cta { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+    .scene-beats { list-style: none; margin: 0; padding: 0 0 clamp(4rem, 8vw, 6rem); display: grid; gap: 3rem; }
+    .scene-beat h2 { font-size: var(--fs-h2); max-width: 20ch; margin-bottom: 1.2rem; }
+    .scene-beat h3 { font-size: var(--fs-h3); font-weight: 400; margin-bottom: 0.7rem; }
+    .scene-beat p { color: rgba(245, 242, 236, 0.76); max-width: 30rem; }
+    .scene-beat .phase {
+      display: block;
       font-family: var(--font-body);
       font-weight: 700;
-      font-size: 0.72rem;
-      letter-spacing: 0.2em;
+      font-size: var(--fs-label);
+      letter-spacing: 0.24em;
       text-transform: uppercase;
       color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+    .scene-anchor { position: absolute; left: 0; top: 0; width: 1px; height: 1px; }
+    .scene-cue { display: none; }
+
+    /* Live scene: added by scene.js. Stage pins, copy stacks in one cell, laptop on the canvas. */
+    html.js .scene.is-live { height: 560vh; }
+    .is-live .scene-stage {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+    .is-live .scene-canvas { display: block; }
+    .is-live .scene-copy {
+      position: absolute;
+      inset: 0;
+      padding-top: var(--header-h);
+      display: grid;
+      align-items: center;
+      pointer-events: none;
+    }
+    .is-live .scene-copy > * { grid-area: 1 / 1; }
+    .is-live .scene-hero { padding: 0; max-width: 36rem; will-change: opacity, transform; }
+    .is-live .scene-hero .btn { pointer-events: auto; }
+    .is-live .scene-beats { padding: 0; display: grid; }
+    .is-live .scene-beat {
+      grid-area: 1 / 1;
+      max-width: 32rem;
+      opacity: 0;
+      will-change: opacity, transform;
+    }
+    .is-live .scene-anchor { top: 24%; }
+    .is-live .scene-cue {
       display: block;
-      margin-bottom: 0.5rem;
+      position: absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      margin: 0;
+      font-size: var(--fs-label);
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      pointer-events: none;
     }
-    .approach-card h3 {
-      font-size: clamp(1.6rem, 1.3rem + 1vw, 2rem);
-      margin-bottom: 0.6rem;
+    .is-live .scene-cue::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 30px;
+      margin: 10px auto 0;
+      background: linear-gradient(var(--gold), transparent);
     }
-    .approach-card p { color: var(--slate); }
+
+    @media (min-width: 700px) {
+      .scene-beats { grid-template-columns: repeat(3, 1fr); }
+      .scene-beat--intro { grid-column: 1 / -1; }
+    }
+    /* Phone: copy in the lower part, laptop above it. */
+    @media (max-width: 767px) {
+      html.js .scene.is-live { height: 600vh; }
+      .is-live .scene-copy { align-items: end; padding-bottom: 28px; }
+      .is-live .scene-hero h1 { font-size: clamp(2.5rem, 11vw, 3.4rem); margin-bottom: 1rem; }
+      .is-live .scene-hero .lead { font-size: 1rem; margin-bottom: 1.4rem; }
+      .is-live .scene-beat { max-width: none; }
+      .is-live .scene-beat h2 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+      .is-live .scene-beat p { font-size: 0.95rem; }
+      .is-live .scene-cue { display: none; }
+    }
 
     /* ============================================================
-       About section
+       About: lit figure + bio
        ============================================================ */
     .about-grid {
       display: grid;
       gap: clamp(2rem, 5vw, 3.5rem);
       grid-template-columns: 1fr;
-      align-items: start;
-      margin-top: clamp(2rem, 4vw, 3rem);
-    }
-    .about-photo {
-      width: 100%;
-      max-width: 320px;
-      aspect-ratio: 4 / 5;
-      background: rgba(197, 165, 114, 0.12);
-      border: 1px solid rgba(26, 26, 26, 0.08);
-      display: flex;
       align-items: center;
-      justify-content: center;
-      color: var(--slate);
-      font-size: 0.85rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 700;
     }
-    .about-photo img {
+    .figure-stage {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-width: 300px;
+      background:
+        radial-gradient(70% 60% at 50% 100%, rgba(197, 165, 114, 0.22), transparent 70%),
+        linear-gradient(180deg, var(--sand), #E4DCCC);
+      border-top: 1px solid var(--gold);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-warm);
+    }
+    .figure-photo {
+      position: absolute;
+      left: 50%;
+      bottom: -2%;
+      height: 104%;
+      width: auto;
+      max-width: none;
+      transform: translateX(-50%);
     }
     .about-bio p { color: var(--slate); margin-bottom: 1rem; }
-    .about-bio p:first-child {
-      color: var(--charcoal);
-      font-size: 1.1rem;
-      font-weight: 400;
-    }
+    .about-bio p:first-of-type { color: var(--charcoal); font-size: 1.15rem; }
     .about-bio strong { color: var(--charcoal); font-weight: 700; }
-
-    @media (min-width: 800px) {
-      .about-grid { grid-template-columns: 320px 1fr; }
+    @media (min-width: 860px) {
+      .about-grid { grid-template-columns: 300px 1fr; gap: clamp(2.5rem, 6vw, 5rem); }
+      .about-copy { padding-right: 1rem; }
     }
 
     /* ============================================================
-       Services — grid of 6
+       Build
        ============================================================ */
-    .grid-services {
+    .build { position: relative; overflow: hidden; isolation: isolate; }
+    .build-rows { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+    @media (min-width: 900px) {
+      .build-rows { display: grid; grid-template-columns: 1fr 1fr; column-gap: clamp(2rem, 5vw, 4rem); border-top: 0; }
+      .build-rows .row { border-top: 1px solid var(--rule-dark); border-bottom: 0; }
+    }
+    .build__proof {
+      margin-top: 2rem;
+      max-width: 62ch;
+      font-size: var(--fs-small);
+      color: rgba(245, 242, 236, 0.66);
+    }
+    .build__subhead {
+      font-size: var(--fs-h3);
+      font-weight: 400;
+      margin-top: clamp(3rem, 6vw, 4.5rem);
+      color: var(--offwhite);
+    }
+    .build-grid {
       display: grid;
-      gap: 1px;
-      grid-template-columns: 1fr;
-      margin-top: clamp(2.5rem, 5vw, 3.5rem);
-      background: rgba(26, 26, 26, 0.1);
-      border: 1px solid rgba(26, 26, 26, 0.1);
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: clamp(1.25rem, 3vw, 2rem);
+      margin-top: 1.5rem;
     }
-    .service {
-      background: var(--white);
-      padding: clamp(1.75rem, 4vw, 2.5rem);
-    }
-    .service__num {
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      color: var(--gold);
-      letter-spacing: 0.05em;
+    .build-card {
       display: block;
-      margin-bottom: 1rem;
+      position: relative;
+      color: var(--offwhite);
+      transform-style: preserve-3d;
     }
-    .service h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+    .build-card__frame {
+      display: block;
+      position: relative;
+      padding: 6px;
+      border-radius: 6px;
+      background: rgba(245, 242, 236, 0.06);
+      border: 1px solid rgba(245, 242, 236, 0.12);
+      box-shadow: 0 30px 60px rgba(5, 14, 30, 0.45);
+      transition: border-color 0.5s var(--ease), box-shadow 0.5s var(--ease), transform 0.6s var(--ease);
+      overflow: hidden;
     }
-    .service p { color: var(--slate); margin: 0; }
+    .build-card__frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(245, 242, 236, 0.22), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.4s var(--ease);
+      pointer-events: none;
+    }
+    .build-card.is-tilting .build-card__frame::after { opacity: 1; }
+    .build-card:hover .build-card__frame { border-color: rgba(197, 165, 114, 0.6); }
+    .build-card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top;
+      border-radius: 3px;
+      background: linear-gradient(160deg, var(--navy-soft), var(--navy-deep));
+    }
+    .build-card__body { display: block; padding: 1.1rem 0.25rem 0; }
+    .build-card h4 { font-size: 1.45rem; margin: 0 0 0.35rem; color: var(--offwhite); transition: color 0.4s var(--ease); }
+    .build-card:hover h4 { color: var(--gold); }
+    .build-card p { color: rgba(245, 242, 236, 0.7); font-size: var(--fs-small); margin: 0; }
+    .build__cta { margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+    .build__cta .btn { text-align: center; }
+    .build-watermark {
+      position: absolute;
+      z-index: -1;
+      right: -2%;
+      top: -4%;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: clamp(22rem, 60vw, 60rem);
+      line-height: 0.8;
+      color: var(--gold);
+      opacity: 0.045;
+      pointer-events: none;
+      user-select: none;
+    }
 
     /* ============================================================
        Testimonials
        ============================================================ */
-    .testimonials__grid {
-      display: grid;
-      gap: clamp(1.5rem, 4vw, 2.5rem);
-      grid-template-columns: 1fr;
-      margin-top: clamp(2.5rem, 5vw, 3.5rem);
-    }
-    .testimonial {
-      border-left: 2px solid var(--gold);
-      padding: 0.25rem 0 0.25rem clamp(1.25rem, 3vw, 2rem);
-      margin: 0;
-      max-width: 62ch;
-    }
+    .testimonials__grid { display: grid; gap: clamp(1.5rem, 4vw, 2.5rem); grid-template-columns: 1fr; margin-top: clamp(2.5rem, 5vw, 3.5rem); }
+    .testimonial { margin: 0; max-width: 66ch; position: relative; padding-left: clamp(1.5rem, 4vw, 2.5rem); }
+    .testimonial::before { content: ""; position: absolute; left: 0; top: 0.4rem; bottom: 0.4rem; width: 1px; background: var(--gold); }
     .testimonial__quote {
       font-family: var(--font-head);
-      font-weight: 400;
-      font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.6rem);
-      line-height: 1.4;
-      color: var(--charcoal);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.35rem, 1.1rem + 1vw, 1.85rem);
+      line-height: 1.38;
+      color: var(--navy);
       margin: 0 0 1.5rem;
     }
-    .testimonial__quote .quote-mark { color: var(--gold); }
-    .testimonial__attrib {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.75rem 1.25rem;
-      font-style: normal;
-    }
-    .testimonial__person {
-      font-size: 0.9rem;
-      line-height: 1.45;
-      color: var(--slate);
-    }
+    .testimonial__quote .quote-mark { color: var(--gold); font-style: normal; }
+    .testimonial__attrib { font-style: normal; }
+    .testimonial__person { font-size: 0.92rem; line-height: 1.45; color: var(--slate); }
     .testimonial__name {
       display: block;
       font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
+      font-size: 0.76rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--navy);
+      margin-bottom: 0.15rem;
     }
+
+    /* ============================================================
+       Quote breakout
+       ============================================================ */
+    .quote-band { position: relative; overflow: hidden; isolation: isolate; text-align: center; }
+    .quote-band blockquote {
+      margin: 0 auto;
+      max-width: 26ch;
+      font-family: var(--font-head);
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.9rem, 1.2rem + 3.4vw, 3.6rem);
+      line-height: 1.15;
+      color: var(--navy);
+    }
+    .quote-band .quote-mark { color: var(--gold); font-style: normal; }
+    .quote-band cite {
+      display: block;
+      margin-top: 1.75rem;
+      font-family: var(--font-body);
+      font-style: normal;
+      font-weight: 700;
+      font-size: var(--fs-label);
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+    }
+    .quote-band__rule { display: block; width: 64px; height: 1px; background: var(--gold); margin: 0 auto 2rem; }
 
     /* ============================================================
        FAQ
        ============================================================ */
-    .faq-list {
-      margin-top: clamp(2.5rem, 5vw, 3.5rem);
-      max-width: 52rem;
-      border-top: 1px solid rgba(26, 26, 26, 0.1);
-    }
-    .faq-item {
-      border-bottom: 1px solid rgba(26, 26, 26, 0.1);
-    }
+    .faq-list { margin-top: clamp(2.5rem, 5vw, 3.5rem); border-top: 1px solid var(--rule); }
+    .faq-item { border-bottom: 1px solid var(--rule); }
     .faq-item summary {
       font-family: var(--font-head);
       font-weight: 500;
-      font-size: clamp(1.25rem, 1.1rem + 0.55vw, 1.5rem);
+      font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.6rem);
       line-height: 1.25;
       color: var(--navy);
       cursor: pointer;
@@ -502,218 +714,170 @@
       justify-content: space-between;
       gap: 1.5rem;
       padding-block: clamp(1.1rem, 2.5vw, 1.5rem);
-      transition: color 0.25s var(--ease);
+      transition: color 0.35s var(--ease);
     }
     .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary:hover { color: var(--gold); }
+    .faq-item summary:hover { color: var(--gold-deep); }
     .faq-item summary::after {
       content: "+";
-      font-family: var(--font-body);
+      font-family: var(--font-head);
       font-weight: 300;
-      font-size: 1.5rem;
+      font-size: 1.9rem;
       line-height: 1;
       color: var(--gold);
       flex: none;
-      transition: transform 0.25s var(--ease);
+      transition: transform 0.45s var(--ease);
     }
     .faq-item[open] summary::after { transform: rotate(45deg); }
-    .faq-item[open] summary { color: var(--navy); }
     .faq-item__answer {
       color: var(--slate);
-      max-width: 46rem;
+      max-width: 66ch;
       margin: 0;
       padding-bottom: clamp(1.25rem, 3vw, 1.75rem);
     }
-    .faq-item__answer a {
-      color: var(--navy);
-      font-weight: 700;
-      border-bottom: 1px solid var(--gold);
-    }
-
-    /* ============================================================
-       Quote band
-       ============================================================ */
-    .quote-band { text-align: center; }
-    .quote-band blockquote {
-      margin: 0 auto;
-      max-width: 30ch;
-      font-family: var(--font-head);
-      font-weight: 500;
-      font-size: clamp(2rem, 1.2rem + 4vw, 3.5rem);
-      line-height: 1.18;
-      color: var(--offwhite);
-    }
-    .quote-band .quote-mark { color: var(--gold); }
-    .quote-band cite {
-      display: block;
-      margin-top: 1.75rem;
-      font-family: var(--font-body);
-      font-style: normal;
-      font-weight: 700;
-      font-size: 0.78rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
+    .faq-item__answer a { color: var(--navy); font-weight: 700; border-bottom: 1px solid var(--gold); }
 
     /* ============================================================
        Contact
        ============================================================ */
-    .contact__inner { max-width: 44rem; }
+    .contact { position: relative; overflow: hidden; isolation: isolate; }
+    .contact-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; align-items: start; }
+    @media (min-width: 900px) {
+      .contact-grid { grid-template-columns: 5fr 6fr; gap: clamp(2rem, 6vw, 5rem); }
+    }
     .contact h2 { margin-bottom: 1.25rem; }
+    .contact-laptop {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 5 / 4;
+      max-height: 440px;
+      margin-top: 2rem;
+      margin-inline: -6%;
+      width: 112%;
+    }
+    .contact-laptop canvas { display: block; width: 100% !important; height: 100% !important; }
+    @media (max-width: 899px) { .contact-laptop { margin-inline: 0; width: 100%; aspect-ratio: 4 / 3; max-height: 320px; } }
 
-    .contact-form {
-      margin-top: 2.25rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-    .field { display: flex; flex-direction: column; gap: 0.4rem; }
+    .contact-form { margin-top: 0.5rem; display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    .field { display: flex; flex-direction: column; gap: 0.45rem; }
     .field label {
-      font-size: 0.78rem;
+      font-size: var(--fs-label);
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--navy);
+      color: var(--gold);
     }
-    .field__opt {
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: 0;
-      color: var(--slate);
-    }
-    .field input,
-    .field textarea {
+    .field__opt { font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(245, 242, 236, 0.6); }
+    .field input, .field textarea {
       font-family: var(--font-body);
       font-size: 1rem;
-      color: var(--charcoal);
-      background: var(--white);
-      border: 1px solid rgba(26, 26, 26, 0.25);
-      border-radius: 0;
-      padding: 0.85rem 1rem;
-      transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+      color: var(--offwhite);
+      background: rgba(245, 242, 236, 0.06);
+      border: 1px solid rgba(197, 165, 114, 0.4);
+      border-radius: var(--radius);
+      padding: 0.9rem 1rem;
+      transition: border-color 0.3s var(--ease), box-shadow 0.3s var(--ease), background-color 0.3s var(--ease);
     }
     .field textarea { resize: vertical; min-height: 7.5rem; }
-    .field input:focus,
-    .field textarea:focus {
+    .field input:focus, .field textarea:focus {
       outline: none;
       border-color: var(--gold);
-      box-shadow: 0 0 0 2px rgba(197, 165, 114, 0.45);
+      background: rgba(245, 242, 236, 0.09);
+      box-shadow: 0 0 0 3px rgba(197, 165, 114, 0.22);
     }
     /* Error state only once the field has content. Required fields carry
-       placeholder=" " so :placeholder-shown matches while empty — without it
-       every required field renders red on page load. Don't remove either half. */
+       placeholder=" " so :placeholder-shown matches while empty. Keep both halves. */
     .field input:invalid:not(:placeholder-shown),
-    .field textarea:invalid:not(:placeholder-shown) {
-      border-color: #9a3b2e;
-    }
+    .field textarea:invalid:not(:placeholder-shown) { border-color: #c96b5a; }
     .contact-form .btn { width: 100%; }
-
     @media (min-width: 600px) {
       .contact-form { grid-template-columns: 1fr 1fr; }
       .field--full { grid-column: 1 / -1; }
       .contact-form .btn { width: auto; justify-self: start; }
     }
-
-    .contact__email {
-      margin-top: 1.75rem;
-      font-size: 0.95rem;
-      color: var(--slate);
-    }
-    .contact__email a {
-      color: var(--navy);
-      font-weight: 700;
-      border-bottom: 1px solid var(--gold);
+    .contact__email { margin-top: 1.75rem; font-size: 0.95rem; color: rgba(245, 242, 236, 0.7); }
+    .contact__email a { color: var(--offwhite); font-weight: 700; border-bottom: 1px solid var(--gold); }
+    .contact-watermark {
+      position: absolute;
+      z-index: -1;
+      left: -3%;
+      bottom: -18%;
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: clamp(20rem, 50vw, 48rem);
+      line-height: 0.8;
+      color: var(--gold);
+      opacity: 0.04;
+      pointer-events: none;
+      user-select: none;
     }
 
     /* ============================================================
        Footer
        ============================================================ */
     .site-footer {
-      background: var(--navy);
+      background: var(--navy-deep);
       color: rgba(245, 242, 236, 0.7);
       padding-block: clamp(3rem, 6vw, 4.5rem);
+      border-top: 1px solid rgba(197, 165, 114, 0.14);
     }
     .site-footer .logo { color: var(--offwhite); }
-    .footer__grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem 3rem;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .footer__nav {
-      list-style: none;
-      margin: 0; padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem 2rem;
-    }
+    .footer__grid { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; justify-content: space-between; align-items: flex-start; }
+    .footer__nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1.25rem 2rem; }
     .footer__nav a {
-      font-size: 0.8rem;
-      letter-spacing: 0.1em;
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       font-weight: 700;
       color: rgba(245, 242, 236, 0.78);
+      transition: color 0.3s var(--ease);
     }
     .footer__nav a:hover { color: var(--gold); }
     .footer__bottom {
       margin-top: 2.5rem;
       padding-top: 1.75rem;
-      border-top: 1px solid rgba(245, 242, 236, 0.12);
+      border-top: 1px solid rgba(245, 242, 236, 0.1);
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem 1.5rem;
       justify-content: space-between;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
-    .footer__bottom a { border-bottom: 1px solid transparent; }
+    .footer__bottom a { border-bottom: 1px solid transparent; transition: color 0.3s var(--ease), border-color 0.3s var(--ease); }
     .footer__bottom a:hover { border-color: var(--gold); color: var(--gold); }
 
     /* ============================================================
-       Responsive
+       Responsive nav
        ============================================================ */
-    @media (min-width: 700px) {
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-      .grid-services { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 859px) {
+    @media (max-width: 899px) {
       .nav-toggle { display: flex; }
       .nav {
         position: fixed;
-        inset: 72px 0 auto 0;
+        inset: var(--header-h) 0 auto 0;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
         background: var(--navy);
         padding: 0.5rem var(--pad) 1.5rem;
         transform: translateY(-130%);
-        transition: transform 0.3s var(--ease);
-        box-shadow: 0 18px 40px rgba(14, 34, 64, 0.25);
+        transition: transform 0.5s var(--ease);
+        box-shadow: 0 18px 40px rgba(9, 26, 51, 0.35);
+        z-index: 90;
       }
       .nav[data-open="true"] { transform: translateY(0); }
-      .nav__list {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        width: 100%;
-      }
-      .nav__link {
-        color: var(--offwhite);
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(245, 242, 236, 0.12);
-      }
+      .nav__list { flex-direction: column; align-items: stretch; gap: 0; width: 100%; }
+      .nav__link { color: var(--offwhite); padding: 1rem 0; border-bottom: 1px solid rgba(245, 242, 236, 0.12); font-size: 0.9rem; }
       .nav__link::after { display: none; }
-      .nav .btn { margin-top: 1.25rem; width: 100%; }
-
-      .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .nav .btn { margin-top: 1.25rem; width: 100%; color: var(--offwhite); border-color: var(--gold); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
       .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
-      .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
+      html.js .reveal { opacity: 1; transform: none; transition: none; }
+      .is-live .scene-hero, .is-live .scene-beat { will-change: auto; }
       *, *::before, *::after {
         animation-duration: 0.001ms !important;
         animation-iteration-count: 1 !important;
@@ -721,7 +885,6 @@
       }
     }
   </style>
-
   <!-- ============================================================
        Structured data (JSON-LD) — for search + AI answer engines
        ============================================================ -->
@@ -838,6 +1001,62 @@
         "mainEntity": [
           {
             "@type": "Question",
+            "name": "Do you build the automations, or just advise on them?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both, and in that order. Cheneval Advisory works as a forward deployed practitioner: we build the workflow automations, AI agents, integrations and tools inside your organisation, test them, and then train the people who own the work so they can run and extend them. The build is the fastest way to get adoption, because people change how they work when there is something real to use."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What kinds of automations and agents do you build?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mostly the repetitive admin that eats a role's week: receipt and invoice processing, approvals, reporting, CRM updates, inbox triage and document generation. We also build AI agents that read, draft, classify and act inside the tools you already use, connected through APIs so data moves without anyone re-keying it. Typical tools include n8n, Power Automate, Zapier, Copilot Studio, Claude and OpenAI."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you work with the systems we already have?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, and that is the default. Most builds connect the tools you already pay for, such as Microsoft 365, Copilot, Xero and Shopify, rather than adding new software. Where a gap genuinely needs a new tool, we recommend one and explain why before anything is bought."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you build our website or online store?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Cheneval Advisory builds conversion-focused websites, Shopify stores, landing pages, dashboards and small web apps, structured for search, including AI search, and built for whoever updates them next year. The Stoke Bites store and this site are both examples."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a build take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most forward deployed engagements run two to twelve weeks, depending on how many workflows are in scope and how many systems need connecting. Smaller builds sit at the short end of that range, and broader rollouts are scoped in phases so something useful is running early."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a forward deployed AI engineer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A forward deployed AI engineer works inside the client's business rather than from a vendor's office, building and adapting AI tools around the client's real workflows, data and people. At Cheneval Advisory that means scoping the problem with your team, building the automation or agent using the systems you already have, and staying until it is working and owned. It is the opposite of a strategy deck or a software licence with no one to make it work."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after the build is handed over?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The people who own the work are trained to run and extend it, with plain documentation and tests so it keeps working as things change. Many clients then move to a monthly adoption retainer or pre-purchased advisory hours for support, roadmap reviews and the next build."
+            }
+          },
+          {
+            "@type": "Question",
             "name": "What is AI adoption consulting?",
             "acceptedAnswer": {
               "@type": "Answer",
@@ -881,7 +1100,7 @@
             "name": "What does AI adoption consulting cost in Australia?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, monthly adoption retainers, and pre-purchased advisory hours for on-demand guidance. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact jami@chenevaladvisory.com.au."
+              "text": "It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, forward deployed build engagements of two to twelve weeks, monthly adoption retainers, and pre-purchased advisory hours. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact jami@chenevaladvisory.com.au."
             }
           },
           {
@@ -902,7 +1121,7 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============================== HEADER ============================== -->
-  <header class="site-header">
+  <header class="site-header" id="siteHeader">
     <div class="container">
       <a href="#top" class="logo" aria-label="Cheneval Advisory — home">
         <span class="logo__name">Cheneval</span>
@@ -926,6 +1145,7 @@
           <li><a class="nav__link" href="#approach">Approach</a></li>
           <li><a class="nav__link" href="#about">About</a></li>
           <li><a class="nav__link" href="#services">Services</a></li>
+          <li><a class="nav__link" href="#build">Build</a></li>
           <li><a class="nav__link" href="#testimonials">Testimonials</a></li>
           <li><a class="nav__link" href="#contact">Contact</a></li>
         </ul>
@@ -935,109 +1155,107 @@
   </header>
 
   <main id="main">
-    <span id="top"></span>
 
-    <!-- ============================== HERO ============================== -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__inner">
-        <p class="eyebrow">AI Adoption Advisory</p>
-        <h1 id="hero-title">AI adoption, delivered by operators.</h1>
-        <p class="lead">
-          Cheneval Advisory helps organisations adopt AI in practical, sustainable ways.
-          We combine a practitioner's perspective to AI
-          transformation and a strategic approach to implementation, using the tools daily, working inside real workplaces, and
-          helping leaders move from <em>"we should do AI"</em> to <em>"here's what we changed on Monday."</em>
-        </p>
-        <div class="hero__cta">
-          <a class="btn btn--gold" href="#contact">Start a conversation</a>
-          <a class="btn btn--ghost" href="#approach">How we work</a>
+    <!-- ============================== HERO + APPROACH SCENE ==============================
+         One pinned stage. The hero reads first with the laptop closed; as you scroll the lid
+         opens, the screen lights up and the three phases play out beside it. Without JS the
+         section lays out as plain, complete text. scene.js adds .is-live and drives it. -->
+    <section class="scene" id="top" aria-labelledby="hero-title">
+      <div class="scene-stage">
+        <div class="scene-bg" data-sc="bg" aria-hidden="true"></div>
+        <div class="scene-canvas" data-sc="canvas" aria-hidden="true"></div>
+        <span class="scene-anchor" id="approach" aria-hidden="true"></span>
+
+        <div class="container scene-copy">
+          <div class="scene-hero" data-sc="hero">
+            <p class="eyebrow">AI Adoption and Automation</p>
+            <h1 id="hero-title">Build it. Then make it stick.</h1>
+            <p class="lead">
+              Cheneval Advisory is a forward deployed AI practice. We work inside your organisation
+              to build the automations, agents and tools your team actually needs, then train the
+              people who own them so the change lasts after we leave.
+              Less <em>"we should do AI"</em>, more <em>"here's what runs on its own now."</em>
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--gold" href="#contact">Start a conversation</a>
+              <a class="btn btn--ghost" href="#build">See what we build</a>
+            </div>
+          </div>
+
+          <ol class="scene-beats" aria-label="Our approach">
+            <li class="scene-beat scene-beat--intro" data-sc="beat">
+              <p class="eyebrow">Our Approach</p>
+              <h2 class="section-title" id="approach-title">From AI uncertainty to things that run.</h2>
+              <p class="lead">
+                AI adoption fails in two places: nobody builds the thing, or nobody uses the thing
+                that got built. We cover both. Three phases, run inside your business rather than
+                from a slide deck.
+              </p>
+            </li>
+
+            <li class="scene-beat" data-sc="beat">
+              <span class="phase">Phase 01</span>
+              <h3>Diagnose</h3>
+              <p>
+                A workshop, leadership session or fixed-scope readiness assessment to find the
+                workflows where AI creates real value in your context, and the capability, data
+                and risk gaps that need attention first.
+              </p>
+            </li>
+
+            <li class="scene-beat" data-sc="beat">
+              <span class="phase">Phase 02</span>
+              <h3>Build</h3>
+              <p>
+                We design and build the highest-leverage use cases with your team: workflow
+                automations, AI agents, integrations and tools, using the systems you already
+                have wherever possible. Tested and working before anyone is asked to change how
+                they work.
+              </p>
+            </li>
+
+            <li class="scene-beat" data-sc="beat">
+              <span class="phase">Phase 03</span>
+              <h3>Embed</h3>
+              <p>
+                Training, governance and operating rhythms so the people who own the work can
+                run and extend what was built. Capability stays with you, not with us.
+              </p>
+            </li>
+          </ol>
         </div>
-      </div>
-    </section>
 
-    <!-- ============================== APPROACH ============================== -->
-    <section class="section section--off" id="approach" aria-labelledby="approach-title">
-      <div class="container">
-        <p class="eyebrow">Our Approach</p>
-        <h2 class="section-title" id="approach-title">From AI uncertainty to confident action.</h2>
-        <p class="lead" style="margin-top:1rem;">
-          AI adoption isn't a tooling problem. It's a workforce transformation problem.
-          Our three-phase approach helps your organisation move through it deliberately
-          rather than reactively.
-        </p>
-
-        <div class="grid-3">
-          <article class="approach-card">
-            <span class="approach-card__step">Phase 01</span>
-            <h3>Diagnose</h3>
-            <p>
-              Through a workshop, leadership session, or fixed-scope readiness assessment,
-              we identify where AI can create real value in your context and the workflows,
-              capabilities and risks that need attention first.
-            </p>
-          </article>
-
-          <article class="approach-card">
-            <span class="approach-card__step">Phase 02</span>
-            <h3>Apply</h3>
-            <p>
-              We work alongside your people to put the highest-leverage use cases into
-              practice using existing tools or helping you choose the right tools, designing real workflows, and proving
-              value before you scale.
-            </p>
-          </article>
-
-          <article class="approach-card">
-            <span class="approach-card__step">Phase 03</span>
-            <h3>Embed</h3>
-            <p>
-              We help build the AI literacy, setup governance structures, and implement operating rhythms that make change
-              stick so your teams keep moving long after the engagement ends.
-            </p>
-          </article>
-        </div>
+        <p class="scene-cue" data-sc="cue" aria-hidden="true">Scroll</p>
       </div>
     </section>
 
     <!-- ============================== ABOUT ============================== -->
-    <section class="section section--white" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <p class="eyebrow">About</p>
-        <h2 class="section-title" id="about-title">Practitioner-led, not slide-deck-led.</h2>
-
-        <div class="about-grid">
-          <div class="about-photo" aria-label="Photo of Jami Emerson Cheneval">
-            <img src="./jami_photo.JPG" alt="Jami Emerson Cheneval" />
+    <section class="section section--off about" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-figure reveal">
+          <div class="figure-stage">
+            <img class="figure-photo" src="lab/figure-jami.webp" alt="Jami Emerson Cheneval, standing in a dark blazer and white top, smiling" width="500" height="900" loading="lazy" decoding="async" />
           </div>
+        </div>
 
-          <div class="about-bio">
+        <div class="about-copy">
+          <p class="eyebrow reveal">About</p>
+          <h2 class="section-title reveal" id="about-title" style="--i:1">Practitioner-led, not slide-deck-led.</h2>
+          <div class="about-bio reveal" style="--i:2; margin-top: 1.75rem;">
             <p>
               <strong>Jami Emerson Cheneval</strong> is the principal of Cheneval Advisory,
               a Sydney-based consultancy helping organisations adopt AI in practical,
-              sustainable ways.
+              sustainable ways. She works at the University of Technology Sydney as an AI
+              Capability and Adoption Specialist and Test Automation Engineer, and founded an
+              Australian wholefood snack bar brand that runs on integrated AI workflows.
             </p>
             <p>
-              Originally from Oregon City in the United States, Jami completed a Bachelor of
-              Information Technology at the Australian Catholic University and was named the
-              <strong>2020 NSW International Student of the Year — Higher Education</strong>
-              for her leadership and contribution during her studies. She currently works in
-              IT at the University of Technology Sydney as an AI Capability and Adoption
-              Specialist and Test Automation Engineer.
-            </p>
-            <p>
-              Alongside her IT work, Jami is the founder of an Australian wholefood snack bar
-              brand built on lean operations and integrated AI workflows, and she served as
-              the 2020 Founder-in-Residence at the UTS Techcelerator Female Founder
-              Mentoring Program, supporting emerging women founders across the Australian
-              innovation community.
-            </p>
-            <p>
-              Through Cheneval Advisory, Jami brings a practitioner's perspective to AI
-              transformation — combining technical engineering discipline, founder
-              experience, and hands-on enterprise AI adoption work. She believes AI
-              adoption is a workforce transformation challenge, not a tooling one, and
-              works closely with leaders across executive, people-and-culture, and
-              operations teams to make it real.
+              Through Cheneval Advisory, Jami works as a forward deployed practitioner: she
+              builds the automations and tools, trains the people who own them, and stays
+              until it works. She brings four years of automation engineering experience and deep
+              technical expertise across test automation, workflow automation, web development
+              and enterprise AI adoption, including leading a 34-person team to AI-first ways of
+              working within a year.
             </p>
           </div>
         </div>
@@ -1045,47 +1263,153 @@
     </section>
 
     <!-- ============================== SERVICES ============================== -->
-    <section class="section section--off" id="services" aria-labelledby="services-title">
+    <section class="section section--white" id="services" aria-labelledby="services-title">
+      <div class="container split">
+        <div class="split__aside">
+          <p class="eyebrow reveal">Services</p>
+          <h2 class="section-title reveal" id="services-title" style="--i:1">Five ways we work with you.</h2>
+        </div>
+
+        <ol class="rows">
+          <li class="row reveal">
+            <span class="row__num" aria-hidden="true">01</span>
+            <div>
+              <h3>Executive Workshops</h3>
+              <p>In-house sessions for leadership teams, executive groups, boards, and People &amp; Culture functions — on AI literacy, governance, adoption strategy, and change management. Half-day or full-day.</p>
+            </div>
+          </li>
+          <li class="row reveal" style="--i:1">
+            <span class="row__num" aria-hidden="true">02</span>
+            <div>
+              <h3>Operational Workshops</h3>
+              <p>Hands-on sessions that help operational and frontline staff adopt AI in their everyday work — turning the right tools into practical, repeatable workflows for the tasks they already own.</p>
+            </div>
+          </li>
+          <li class="row reveal" style="--i:2">
+            <span class="row__num" aria-hidden="true">03</span>
+            <div>
+              <h3>Forward Deployed Engagement</h3>
+              <p>Embedded, fixed-term build work inside your team. We map the workflows, build the automations and agents, integrate them with your systems, and hand over working tools with the people trained to run them. Typically two to twelve weeks.</p>
+            </div>
+          </li>
+          <li class="row reveal" style="--i:3">
+            <span class="row__num" aria-hidden="true">04</span>
+            <div>
+              <h3>Adoption Partner Retainer</h3>
+              <p>Ongoing monthly advisory after a diagnostic — leadership sessions, async support, roadmap reviews, governance check-ins, and change-management coaching as you execute.</p>
+            </div>
+          </li>
+          <li class="row reveal" style="--i:4">
+            <span class="row__num" aria-hidden="true">05</span>
+            <div>
+              <h3>Advisory Hours</h3>
+              <p>Pre-purchased advisory hours for organisations that need on-demand AI guidance without a full engagement — document reviews, board prep, vendor evaluation, second opinions.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================== BUILD ============================== -->
+    <section class="section section--navy build on-dark" id="build" aria-labelledby="build-title">
+      <span class="build-watermark" aria-hidden="true">C</span>
       <div class="container">
-        <p class="eyebrow">Services</p>
-        <h2 class="section-title" id="services-title">Four ways we work with you.</h2>
+        <p class="eyebrow reveal">Build</p>
+        <h2 class="section-title reveal" id="build-title" style="--i:1">We don't just advise. We ship.</h2>
+        <p class="lead reveal" style="--i:2; margin-top:1.25rem;">
+          Most AI advisors hand you a strategy and leave. We build the automations, workflows
+          and tools your team will actually use, test them properly, and train the people who
+          own them. Here's what that looks like.
+        </p>
 
-        <div class="grid-services">
-          <article class="service">
-            <span class="service__num">01</span>
-            <h3>Executive Workshops</h3>
-            <p>In-house sessions for leadership teams, executive groups, boards, and People &amp; Culture functions — on AI literacy, governance, adoption strategy, and change management. Half-day or full-day.</p>
-          </article>
+        <ol class="rows build-rows">
+          <li class="row reveal">
+            <span class="row__num" aria-hidden="true">01</span>
+            <div>
+              <h3>Workflow automation</h3>
+              <p>Receipts, invoices, approvals, reporting, CRM updates, inbox triage, document generation. The repetitive admin that eats a role's week, built to run on its own.</p>
+              <p class="tools">n8n · Power Automate · Zapier · Copilot Studio</p>
+            </div>
+          </li>
+          <li class="row reveal" style="--i:1">
+            <span class="row__num" aria-hidden="true">02</span>
+            <div>
+              <h3>AI agents and integrations</h3>
+              <p>Agents that read, draft, classify and act inside the tools you already pay for, connected through APIs so data moves without a person re-keying it.</p>
+              <p class="tools">Claude · OpenAI · Copilot · Xero · Shopify · Microsoft 365</p>
+            </div>
+          </li>
+          <li class="row reveal" style="--i:2">
+            <span class="row__num" aria-hidden="true">03</span>
+            <div>
+              <h3>Websites and online stores</h3>
+              <p>Conversion-focused websites, Shopify stores, landing pages, dashboards and small web apps. Built for search, including AI search, and for whoever updates them next year.</p>
+              <p class="tools">Shopify · HTML/CSS · Framer · Webflow</p>
+            </div>
+          </li>
+          <li class="row reveal" style="--i:3">
+            <span class="row__num" aria-hidden="true">04</span>
+            <div>
+              <h3>Development and test automation</h3>
+              <p>Custom scripts and integrations, and the test automation that keeps them working as things change.</p>
+              <p class="tools">Playwright · Selenium · C#/.NET · Python · GitHub</p>
+            </div>
+          </li>
+        </ol>
 
-          <article class="service">
-            <span class="service__num">02</span>
-            <h3>Adoption Partner Retainer</h3>
-            <p>Ongoing monthly advisory after a diagnostic — leadership sessions, async support, roadmap reviews, governance check-ins, and change-management coaching as you execute.</p>
-          </article>
+        <p class="build__proof reveal">
+          Built and run daily: an Australian consumer brand operating on Shopify, n8n, Claude and
+          Xero with no staff, and an enterprise AI rollout at the University of Technology Sydney.
+        </p>
 
-          <article class="service">
-            <span class="service__num">03</span>
-            <h3>Operational Workshops</h3>
-            <p>Hands-on sessions that help operational and frontline staff adopt AI in their everyday work — turning the right tools into practical, repeatable workflows for the tasks they already own.</p>
-          </article>
+        <h3 class="build__subhead reveal">Built by Cheneval</h3>
 
-          <article class="service">
-            <span class="service__num">04</span>
-            <h3>Advisory Hours</h3>
-            <p>Pre-purchased advisory hours for organisations that need on-demand AI guidance without a full engagement — document reviews, board prep, vendor evaluation, second opinions.</p>
-          </article>
+        <div class="build-grid">
+          <a class="build-card reveal" data-tilt="6" href="https://stokebites.com.au" target="_blank" rel="noopener noreferrer">
+            <span class="build-card__frame">
+              <img src="build-stokebites.webp" alt="Stoke Bites website" width="1600" height="1000" loading="lazy" decoding="async" />
+            </span>
+            <span class="build-card__body">
+              <h4>Stoke Bites</h4>
+              <p>Shopify store, designed, built and run end to end, with automated orders, inventory and finance flows.</p>
+            </span>
+          </a>
+
+          <a class="build-card reveal" data-tilt="6" style="--i:1" href="https://thewhitelabelgroup.org" target="_blank" rel="noopener noreferrer">
+            <span class="build-card__frame">
+              <img src="build-wlg.webp" alt="The White Label Group website" width="1600" height="1000" loading="lazy" decoding="async" />
+            </span>
+            <span class="build-card__body">
+              <h4>The White Label Group</h4>
+              <p>Operations and AI adoption consultancy site.</p>
+            </span>
+          </a>
+
+          <a class="build-card reveal" data-tilt="6" style="--i:2" href="https://chenevaladvisory.com.au" target="_blank" rel="noopener noreferrer">
+            <span class="build-card__frame">
+              <img src="build-cheneval.webp" alt="Cheneval Advisory website" width="1600" height="1000" loading="lazy" decoding="async" />
+            </span>
+            <span class="build-card__body">
+              <h4>Cheneval Advisory</h4>
+              <p>This site. Hand-built HTML and CSS, structured for search and AI answers.</p>
+            </span>
+          </a>
+        </div>
+
+        <div class="build__cta reveal">
+          <a class="btn btn--gold" href="#contact">Got a process eating hours every week? Tell us about it.</a>
         </div>
       </div>
     </section>
 
     <!-- ============================== TESTIMONIALS ============================== -->
-    <section class="section section--white" id="testimonials" aria-labelledby="testimonials-title">
+    <section class="section section--off" id="testimonials" aria-labelledby="testimonials-title">
       <div class="container">
-        <p class="eyebrow">In their words</p>
-        <h2 class="section-title" id="testimonials-title">What clients say.</h2>
+        <p class="eyebrow reveal">In their words</p>
+        <h2 class="section-title reveal" id="testimonials-title" style="--i:1">What clients say.</h2>
 
         <div class="testimonials__grid">
-          <figure class="testimonial">
+          <figure class="testimonial reveal" style="--i:2">
             <blockquote class="testimonial__quote">
               <span class="quote-mark" aria-hidden="true">"</span>Jami, thank you for facilitating such an
               outstanding AI adoption workshop at Loreto Kirribilli. Your engaging and practical approach
@@ -1105,8 +1429,9 @@
     </section>
 
     <!-- ============================== QUOTE BAND ============================== -->
-    <section class="section section--navy quote-band" aria-label="Our point of view">
-      <div class="container">
+    <section class="section section--off quote-band" aria-label="Our point of view">
+      <div class="container reveal">
+        <span class="quote-band__rule" aria-hidden="true"></span>
         <blockquote>
           <span class="quote-mark" aria-hidden="true">"</span>AI adoption isn't a tooling problem. It's a workforce transformation problem.<span class="quote-mark" aria-hidden="true">"</span>
         </blockquote>
@@ -1116,14 +1441,51 @@
 
     <!-- ============================== FAQ ============================== -->
     <section class="section section--white" id="faq" aria-labelledby="faq-title">
-      <div class="container">
-        <p class="eyebrow">Common questions</p>
-        <h2 class="section-title" id="faq-title">Questions we hear a lot.</h2>
-        <p class="lead" style="margin-top:1rem;">
-          The questions leadership teams ask us most often, answered plainly.
-        </p>
+      <div class="container split">
+        <div class="split__aside">
+          <p class="eyebrow reveal">Common questions</p>
+          <h2 class="section-title reveal" id="faq-title" style="--i:1">Questions we hear a lot.</h2>
+          <p class="lead reveal" style="--i:2; margin-top:1.25rem;">
+            What we build, how it works with your systems, and how adoption sticks, answered plainly.
+          </p>
+        </div>
 
-        <div class="faq-list">
+        <div class="faq-list reveal" style="margin-top:0;">
+          <details class="faq-item">
+            <summary>Do you build the automations, or just advise on them?</summary>
+            <p class="faq-item__answer">Both, and in that order. Cheneval Advisory works as a forward deployed practitioner: we build the workflow automations, AI agents, integrations and tools inside your organisation, test them, and then train the people who own the work so they can run and extend them. The build is the fastest way to get adoption, because people change how they work when there is something real to use.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What kinds of automations and agents do you build?</summary>
+            <p class="faq-item__answer">Mostly the repetitive admin that eats a role's week: receipt and invoice processing, approvals, reporting, CRM updates, inbox triage and document generation. We also build AI agents that read, draft, classify and act inside the tools you already use, connected through APIs so data moves without anyone re-keying it. Typical tools include n8n, Power Automate, Zapier, Copilot Studio, Claude and OpenAI.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do you work with the systems we already have?</summary>
+            <p class="faq-item__answer">Yes, and that is the default. Most builds connect the tools you already pay for, such as Microsoft 365, Copilot, Xero and Shopify, rather than adding new software. Where a gap genuinely needs a new tool, we recommend one and explain why before anything is bought.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can you build our website or online store?</summary>
+            <p class="faq-item__answer">Yes. Cheneval Advisory builds conversion-focused websites, Shopify stores, landing pages, dashboards and small web apps, structured for search, including AI search, and built for whoever updates them next year. The Stoke Bites store and this site are both examples.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How long does a build take?</summary>
+            <p class="faq-item__answer">Most forward deployed engagements run two to twelve weeks, depending on how many workflows are in scope and how many systems need connecting. Smaller builds sit at the short end of that range, and broader rollouts are scoped in phases so something useful is running early.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is a forward deployed AI engineer?</summary>
+            <p class="faq-item__answer">A forward deployed AI engineer works inside the client's business rather than from a vendor's office, building and adapting AI tools around the client's real workflows, data and people. At Cheneval Advisory that means scoping the problem with your team, building the automation or agent using the systems you already have, and staying until it is working and owned. It is the opposite of a strategy deck or a software licence with no one to make it work.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What happens after the build is handed over?</summary>
+            <p class="faq-item__answer">The people who own the work are trained to run and extend it, with plain documentation and tests so it keeps working as things change. Many clients then move to a monthly adoption retainer or pre-purchased advisory hours for support, roadmap reviews and the next build.</p>
+          </details>
+
           <details class="faq-item">
             <summary>What is AI adoption consulting?</summary>
             <p class="faq-item__answer">AI adoption consulting helps organisations move from buying AI tools to actually using them well. At Cheneval Advisory that means identifying where AI creates real value in your context, building the skills and confidence of your people, and putting governance in place so adoption is safe and sustainable. AI adoption is a workforce transformation challenge, not a tooling one.</p>
@@ -1151,7 +1513,7 @@
 
           <details class="faq-item">
             <summary>What does AI adoption consulting cost in Australia?</summary>
-            <p class="faq-item__answer">It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, monthly adoption retainers, and pre-purchased advisory hours for on-demand guidance. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>.</p>
+            <p class="faq-item__answer">It depends on the format. Cheneval Advisory offers single workshops for leadership or operational teams, fixed-scope readiness assessments, forward deployed build engagements of two to twelve weeks, monthly adoption retainers, and pre-purchased advisory hours. Engagements are scoped to your context, and a short conversation is the fastest way to get an accurate picture. Contact <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>.</p>
           </details>
 
           <details class="faq-item">
@@ -1163,46 +1525,53 @@
     </section>
 
     <!-- ============================== CONTACT ============================== -->
-    <section class="section section--off contact" id="contact" aria-labelledby="contact-title">
-      <div class="container contact__inner">
-        <p class="eyebrow">Let's talk</p>
-        <h2 class="section-title" id="contact-title">Bring clarity to your next AI decision.</h2>
-        <p class="lead" style="margin-top:1rem;">
-          Whether you're a leadership team starting to think about AI, or an organisation
-          ready to embed it across your teams — a short conversation is the
-          fastest way to find out where we can help.
-        </p>
+    <section class="section section--navy contact on-dark" id="contact" aria-labelledby="contact-title">
+      <span class="contact-watermark" aria-hidden="true">C</span>
+      <div class="container contact-grid">
+        <div class="contact-intro">
+          <p class="eyebrow reveal">Let's talk</p>
+          <h2 class="section-title reveal" id="contact-title" style="--i:1">Bring clarity to your next AI decision. Or just get the thing built.</h2>
+          <p class="lead reveal" style="--i:2">
+            Whether you're a leadership team starting to think about AI, a business with a
+            process that should run itself, or an organisation ready to embed AI across your
+            teams, a short conversation is the fastest way to find out where we can help.
+          </p>
+          <!-- The laptop returns here. Its screen mirrors what you type into the form. -->
+          <div class="contact-laptop" id="contactLaptop" aria-hidden="true"></div>
+        </div>
 
-        <form class="contact-form" action="https://formsubmit.co/jamiemerson@icloud.com" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="New enquiry from Cheneval Advisory website" />
-          <input type="hidden" name="_captcha" value="false" />
-          <div class="field">
-            <label for="cf-name">Name</label>
-            <input id="cf-name" name="name" type="text" autocomplete="name" placeholder=" " required />
-          </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" autocomplete="email" placeholder=" " required />
-          </div>
-          <div class="field field--full">
-            <label for="cf-org">Organisation <span class="field__opt">(optional)</span></label>
-            <input id="cf-org" name="organisation" type="text" autocomplete="organization" />
-          </div>
-          <div class="field field--full">
-            <label for="cf-message">How can we help?</label>
-            <textarea id="cf-message" name="message" rows="5" placeholder=" " required></textarea>
-          </div>
-          <div class="field field--full">
-            <button class="btn btn--gold" type="submit">Send message</button>
-          </div>
-        </form>
+        <div class="contact-form-wrap reveal" style="--i:2">
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/jamiemerson@icloud.com" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="New enquiry from Cheneval Advisory website" />
+            <input type="hidden" name="_captcha" value="false" />
+            <div class="field">
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" placeholder=" " required />
+            </div>
+            <div class="field">
+              <label for="cf-email">Email</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" placeholder=" " required />
+            </div>
+            <div class="field field--full">
+              <label for="cf-org">Organisation <span class="field__opt">(optional)</span></label>
+              <input id="cf-org" name="organisation" type="text" autocomplete="organization" />
+            </div>
+            <div class="field field--full">
+              <label for="cf-message">How can we help?</label>
+              <textarea id="cf-message" name="message" rows="5" placeholder=" " required></textarea>
+            </div>
+            <div class="field field--full">
+              <button class="btn btn--gold" type="submit">Send message</button>
+            </div>
+          </form>
 
-        <p class="contact__email">
-          Prefer email? Reach Jami directly at
-          <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>
-          &nbsp;·&nbsp;
-          <a href="https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
-        </p>
+          <p class="contact__email">
+            Prefer email? Reach Jami directly at
+            <a href="mailto:jami@chenevaladvisory.com.au">jami@chenevaladvisory.com.au</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.linkedin.com/in/jami-emerson-cheneval-954a5713a/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+          </p>
+        </div>
       </div>
     </section>
   </main>
@@ -1222,6 +1591,7 @@
             <li><a href="#approach">Approach</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#build">Build</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1240,31 +1610,7 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var toggle = document.getElementById('navToggle');
-      var nav = document.getElementById('primaryNav');
-
-      function setOpen(open) {
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-        nav.setAttribute('data-open', String(open));
-      }
-
-      toggle.addEventListener('click', function () {
-        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-      });
-
-      nav.addEventListener('click', function (e) {
-        if (e.target.closest('a')) setOpen(false);
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') setOpen(false);
-      });
-
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
+  <script type="module" src="site.js"></script>
+  <script type="module" src="scene.js"></script>
 </body>
 </html>
